@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
 // swift-module-flags: -target arm64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Evam_iOS_Common_Kit
 @_exported import Evam_iOS_Common_Kit
 import Foundation
@@ -14,6 +14,14 @@ public protocol PreferencesManagerProtocol {
 @_hasMissingDesignatedInitializers public class PreferencesManager : Evam_iOS_Common_Kit.PreferencesManagerProtocol {
   public var mSharedPreferences: Foundation.UserDefaults
   @objc deinit
+}
+public enum InitializeStatusType {
+  case initializing, initialized, not_initialized, initialize_failed
+  public static func == (a: Evam_iOS_Common_Kit.InitializeStatusType, b: Evam_iOS_Common_Kit.InitializeStatusType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
 }
 public enum EvamLogType : Swift.String {
   case PAGE_IN
@@ -37,10 +45,14 @@ public enum EvamNetworkStatus : Swift.String {
     get
   }
 }
+@available(*, deprecated, renamed: "EventManager")
 public class EvamLogManager {
   public init()
+  @available(*, deprecated, renamed: "sendNotificationEvent")
   public static func logNotificationEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?, userClick: Swift.Bool = false, onSelfClick: Swift.Bool = false)
+  @available(*, deprecated, renamed: "sendEvent")
   public static func logEvent(event: Evam_iOS_Common_Kit.AppCommunicationItem, choice: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, button: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, fromNotification: Swift.Bool = false, userClick: Swift.Bool = false)
+  @available(*, deprecated, renamed: "sendEvent")
   public static func logEvent(controller: UIKit.UIViewController?, eventName: Swift.String, initialParameters: [Swift.String : Swift.String]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
   public static func handlePopupAction(controller: UIKit.UIViewController, action: Evam_iOS_Common_Kit.AppCommunicationItem?, fromNotification: Swift.Bool, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
   @objc deinit
@@ -259,7 +271,7 @@ public class Configuration : Swift.Codable {
   required public init(from decoder: Swift.Decoder) throws
 }
 public class Evam {
-  public static var isInitialized: Swift.Bool
+  public static var initializeStatusType: Evam_iOS_Common_Kit.InitializeStatusType
   public init()
   public static func initialize(apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, localOrigin: Swift.String, actorId: Swift.String? = nil, applicationName: Swift.String = "", offlineCachingDisabled: Swift.Bool = false)
   public static func updateActorId(newActorId: Swift.String)
@@ -412,6 +424,8 @@ extension UIViewController : UIKit.UIPopoverPresentationControllerDelegate, UIKi
   @objc dynamic public func adaptivePresentationStyle(for controller: UIKit.UIPresentationController) -> UIKit.UIModalPresentationStyle
   @objc dynamic public func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIKit.UIPopoverPresentationController) -> Swift.Bool
 }
+extension Evam_iOS_Common_Kit.InitializeStatusType : Swift.Equatable {}
+extension Evam_iOS_Common_Kit.InitializeStatusType : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.EvamLogType : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.EvamLogType : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.EvamLogType : Swift.RawRepresentable {}
