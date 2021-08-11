@@ -45,6 +45,7 @@ public enum EvamNetworkStatus : Swift.String {
     get
   }
 }
+@available(*, deprecated, renamed: "EvamEventManager")
 public class EvamLogManager {
   public init()
   @available(*, deprecated, renamed: "sendNotificationEvent")
