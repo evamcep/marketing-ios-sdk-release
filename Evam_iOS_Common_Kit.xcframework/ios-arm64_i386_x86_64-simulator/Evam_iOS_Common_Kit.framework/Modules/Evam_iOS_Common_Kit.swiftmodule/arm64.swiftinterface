@@ -45,7 +45,6 @@ public enum EvamNetworkStatus : Swift.String {
     get
   }
 }
-@available(*, deprecated, renamed: "EventManager")
 public class EvamLogManager {
   public init()
   @available(*, deprecated, renamed: "sendNotificationEvent")
@@ -175,14 +174,6 @@ public typealias DismissBlock = () -> Swift.Void
   @objc open func hideView()
   @objc open func hideViewTimeout()
   open func isShowing() -> Swift.Bool
-  @objc deinit
-}
-public class EventManager {
-  public init()
-  public static func sendNotificationEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?, userClick: Swift.Bool = false, onSelfClick: Swift.Bool = false)
-  public static func sendEvent(event: Evam_iOS_Common_Kit.AppCommunicationItem, choice: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, button: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, fromNotification: Swift.Bool = false, userClick: Swift.Bool = false)
-  public static func sendEvent(controller: UIKit.UIViewController?, eventName: Swift.String, initialParameters: [Swift.String : Swift.String]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
-  public static func handlePopupAction(controller: UIKit.UIViewController, action: Evam_iOS_Common_Kit.AppCommunicationItem?, fromNotification: Swift.Bool, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class NotificationAppCommunicationItem : Swift.Codable {
@@ -358,6 +349,14 @@ extension Reachability {
   public var description: Swift.String {
     get
   }
+}
+public class EvamEventManager {
+  public init()
+  public static func sendNotificationEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?, userClick: Swift.Bool = false, onSelfClick: Swift.Bool = false)
+  public static func sendEvent(event: Evam_iOS_Common_Kit.AppCommunicationItem, choice: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, button: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, fromNotification: Swift.Bool = false, userClick: Swift.Bool = false)
+  public static func sendEvent(controller: UIKit.UIViewController?, eventName: Swift.String, initialParameters: [Swift.String : Swift.String]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
+  public static func handlePopupAction(controller: UIKit.UIViewController, action: Evam_iOS_Common_Kit.AppCommunicationItem?, fromNotification: Swift.Bool, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
+  @objc deinit
 }
 public func UIColorFromRGB(_ rgbValue: Swift.UInt) -> UIKit.UIColor
 @objc @_inheritsConvenienceInitializers open class EvamViewController : UIKit.UIViewController {
