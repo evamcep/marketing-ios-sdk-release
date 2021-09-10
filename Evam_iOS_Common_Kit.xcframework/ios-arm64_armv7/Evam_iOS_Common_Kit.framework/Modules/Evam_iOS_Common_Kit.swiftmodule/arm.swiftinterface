@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
 // swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Evam_iOS_Common_Kit
 @_exported import Evam_iOS_Common_Kit
 import Foundation
@@ -18,11 +18,12 @@ public protocol PreferencesManagerProtocol {
 public enum InitializeStatusType {
   case initializing, initialized, not_initialized, initialize_failed
   public static func == (a: Evam_iOS_Common_Kit.InitializeStatusType, b: Evam_iOS_Common_Kit.InitializeStatusType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
+@available(*, deprecated, renamed: "EvamEventType")
 public enum EvamLogType : Swift.String {
   case PAGE_IN
   case PAGE_OUT
@@ -30,8 +31,8 @@ public enum EvamLogType : Swift.String {
   case APP_FOREGROUND
   case APP_CRASH
   case ACTOR_CHANGE
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -39,8 +40,8 @@ public enum EvamLogType : Swift.String {
 public enum EvamNetworkStatus : Swift.String {
   case ONLINE
   case OFFLINE
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -63,31 +64,31 @@ public enum EvamPopupStyle {
     get
   }
   public static func == (a: Evam_iOS_Common_Kit.EvamPopupStyle, b: Evam_iOS_Common_Kit.EvamPopupStyle) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public enum EvamAnimationStyle {
   case noAnimation, topToBottom, bottomToTop, leftToRight, rightToLeft
   public static func == (a: Evam_iOS_Common_Kit.EvamAnimationStyle, b: Evam_iOS_Common_Kit.EvamAnimationStyle) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public enum EvamButtonActionType {
   case none, selector, closure
   public static func == (a: Evam_iOS_Common_Kit.EvamButtonActionType, b: Evam_iOS_Common_Kit.EvamButtonActionType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public enum EvamActionType : Swift.String {
   case deep, link
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -95,10 +96,10 @@ public enum EvamActionType : Swift.String {
 public enum EvamAlertButtonLayout {
   case horizontal, vertical
   public static func == (a: Evam_iOS_Common_Kit.EvamAlertButtonLayout, b: Evam_iOS_Common_Kit.EvamAlertButtonLayout) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 @objc @_inheritsConvenienceInitializers open class EvamButton : UIKit.UIButton {
   public struct ShowTimeoutConfiguration {
@@ -191,16 +192,16 @@ public typealias DismissBlock = () -> Swift.Void
   public var scenario: Swift.String?
   public var action: Evam_iOS_Common_Kit.AppCommunicationItemAction?
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunication : Swift.Codable {
   public var model: [Evam_iOS_Common_Kit.AppCommunicationItem]?
   public var configuration: Evam_iOS_Common_Kit.Configuration?
   public var blockedEvents: [Evam_iOS_Common_Kit.BlockedEvents]?
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItem : Swift.Codable {
   public var type: Swift.String?
@@ -221,44 +222,44 @@ public typealias DismissBlock = () -> Swift.Void
   public var scenario: Swift.String?
   public var bgColor: Swift.String?
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 public class Configuration : Swift.Codable {
   public var id: Swift.String?
   public var stopAllEvents: Swift.Bool
   public var offlineQueueSize: Swift.Int?
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class BlockedEvents : Swift.Codable {
   public var name: Swift.String?
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItemHeader : Swift.Codable {
   public var text: Swift.String?
   public var color: Swift.String?
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItemText : Swift.Codable {
   public var text: Swift.String?
   public var color: Swift.String?
   public var bgColor: Swift.String?
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItemAction : Swift.Codable {
   public var link: Swift.String?
   public var type: Swift.String?
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItemButton : Swift.Codable {
   public var id: Swift.String?
@@ -267,8 +268,8 @@ public class Configuration : Swift.Codable {
   public var textColor: Swift.String?
   public var action: Evam_iOS_Common_Kit.AppCommunicationItemAction?
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 public class Evam {
   public static var initializeStatusType: Evam_iOS_Common_Kit.InitializeStatusType
@@ -305,10 +306,10 @@ public class Reachability {
     @available(*, deprecated, renamed: "unavailable")
     public static let none: Evam_iOS_Common_Kit.Reachability.Connection
     public static func == (a: Evam_iOS_Common_Kit.Reachability.Connection, b: Evam_iOS_Common_Kit.Reachability.Connection) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
-    public func hash(into hasher: inout Swift.Hasher)
   }
   public var whenReachable: Evam_iOS_Common_Kit.Reachability.NetworkReachable?
   public var whenUnreachable: Evam_iOS_Common_Kit.Reachability.NetworkUnreachable?
@@ -364,9 +365,9 @@ public func UIColorFromRGB(_ rgbValue: Swift.UInt) -> UIKit.UIColor
   @objc override dynamic open func viewDidLoad()
   @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
   @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
-  @objc deinit
   @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
 }
 @_hasMissingDesignatedInitializers public class EvamConfig {
   final public let ENVIRONMENT_SANDBOX: Swift.String
@@ -391,8 +392,8 @@ public protocol ServiceClientProtocol {
 public enum HTTPMethod : Swift.String {
   case post
   case get
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -428,8 +429,11 @@ public class JSONRequest<T> where T : Swift.Decodable, T : Swift.Encodable {
 }
 extension Evam_iOS_Common_Kit.InitializeStatusType : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.InitializeStatusType : Swift.Hashable {}
+@available(*, deprecated, renamed: "EvamEventType")
 extension Evam_iOS_Common_Kit.EvamLogType : Swift.Equatable {}
+@available(*, deprecated, renamed: "EvamEventType")
 extension Evam_iOS_Common_Kit.EvamLogType : Swift.Hashable {}
+@available(*, deprecated, renamed: "EvamEventType")
 extension Evam_iOS_Common_Kit.EvamLogType : Swift.RawRepresentable {}
 extension Evam_iOS_Common_Kit.EvamNetworkStatus : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.EvamNetworkStatus : Swift.Hashable {}
