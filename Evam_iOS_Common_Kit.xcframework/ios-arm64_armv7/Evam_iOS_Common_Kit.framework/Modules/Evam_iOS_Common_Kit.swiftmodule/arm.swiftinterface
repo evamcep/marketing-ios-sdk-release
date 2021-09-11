@@ -37,6 +37,19 @@ public enum EvamLogType : Swift.String {
     get
   }
 }
+public enum EvamEventType : Swift.String {
+  case PAGE_IN
+  case PAGE_OUT
+  case APP_BACKGROUND
+  case APP_FOREGROUND
+  case APP_CRASH
+  case ACTOR_CHANGE
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
 public enum EvamNetworkStatus : Swift.String {
   case ONLINE
   case OFFLINE
@@ -435,6 +448,9 @@ extension Evam_iOS_Common_Kit.EvamLogType : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.EvamLogType : Swift.Hashable {}
 @available(*, deprecated, renamed: "EvamEventType")
 extension Evam_iOS_Common_Kit.EvamLogType : Swift.RawRepresentable {}
+extension Evam_iOS_Common_Kit.EvamEventType : Swift.Equatable {}
+extension Evam_iOS_Common_Kit.EvamEventType : Swift.Hashable {}
+extension Evam_iOS_Common_Kit.EvamEventType : Swift.RawRepresentable {}
 extension Evam_iOS_Common_Kit.EvamNetworkStatus : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.EvamNetworkStatus : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.EvamNetworkStatus : Swift.RawRepresentable {}
