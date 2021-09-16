@@ -99,7 +99,7 @@ public enum EvamButtonActionType {
   }
 }
 public enum EvamActionType : Swift.String {
-  case deep, link
+  case deep, url
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
