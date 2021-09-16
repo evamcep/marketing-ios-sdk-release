@@ -270,6 +270,8 @@ public class Configuration : Swift.Codable {
 @_hasMissingDesignatedInitializers public class AppCommunicationItemAction : Swift.Codable {
   public var link: Swift.String?
   public var type: Swift.String?
+  public func isDeepType() -> Swift.Bool
+  public func isUrlType() -> Swift.Bool
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
