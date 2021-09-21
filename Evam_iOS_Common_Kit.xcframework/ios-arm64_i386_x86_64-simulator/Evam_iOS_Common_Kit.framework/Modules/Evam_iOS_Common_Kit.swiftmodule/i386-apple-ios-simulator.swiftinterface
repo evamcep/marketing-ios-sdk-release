@@ -44,6 +44,21 @@ public enum EvamEventType : Swift.String {
   case APP_FOREGROUND
   case APP_CRASH
   case ACTOR_CHANGE
+  case PUSH_NOTIFICATION_CLICKED
+  case DENIED
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum EvamNotificationPermissionStatusType : Swift.String {
+  case DENIED
+  case NOT_DETERMINED
+  case AUTHORIZED
+  case PROVISIONAL
+  case EPHEMERAL
+  case DEFAULT
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -372,6 +387,7 @@ public class EvamEventManager {
   public static func sendNotificationEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?, userClick: Swift.Bool = false, onSelfClick: Swift.Bool = false)
   public static func sendEvent(event: Evam_iOS_Common_Kit.AppCommunicationItem, choice: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, button: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, fromNotification: Swift.Bool = false, userClick: Swift.Bool = false)
   public static func sendEvent(controller: UIKit.UIViewController?, eventName: Swift.String, initialParameters: [Swift.String : Swift.String]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
+  public static func sendNotificationPermissionStatusEvent(controller: UIKit.UIViewController?, eventName: Swift.String, initialParameters: [Swift.String : Swift.String]? = nil, notificationPermissionStatusType: Evam_iOS_Common_Kit.EvamNotificationPermissionStatusType, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
   public static func handlePopupAction(controller: UIKit.UIViewController, action: Evam_iOS_Common_Kit.AppCommunicationItem?, fromNotification: Swift.Bool, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
   @objc deinit
 }
@@ -453,6 +469,9 @@ extension Evam_iOS_Common_Kit.EvamLogType : Swift.RawRepresentable {}
 extension Evam_iOS_Common_Kit.EvamEventType : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.EvamEventType : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.EvamEventType : Swift.RawRepresentable {}
+extension Evam_iOS_Common_Kit.EvamNotificationPermissionStatusType : Swift.Equatable {}
+extension Evam_iOS_Common_Kit.EvamNotificationPermissionStatusType : Swift.Hashable {}
+extension Evam_iOS_Common_Kit.EvamNotificationPermissionStatusType : Swift.RawRepresentable {}
 extension Evam_iOS_Common_Kit.EvamNetworkStatus : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.EvamNetworkStatus : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.EvamNetworkStatus : Swift.RawRepresentable {}
