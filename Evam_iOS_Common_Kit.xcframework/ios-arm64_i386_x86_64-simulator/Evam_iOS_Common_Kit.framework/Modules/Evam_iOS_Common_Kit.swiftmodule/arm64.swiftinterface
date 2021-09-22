@@ -45,7 +45,7 @@ public enum EvamEventType : Swift.String {
   case APP_CRASH
   case ACTOR_CHANGE
   case PUSH_NOTIFICATION_CLICKED
-  case DENIED
+  case PUSH_NOTIFICATION_DENIED
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
