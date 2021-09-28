@@ -65,6 +65,15 @@ public enum EvamNotificationPermissionStatusType : Swift.String {
     get
   }
 }
+public enum SendEventStatus : Swift.String {
+  case ENABLED
+  case DISABLED
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
 public enum EvamNetworkStatus : Swift.String {
   case ONLINE
   case OFFLINE
@@ -473,6 +482,9 @@ extension Evam_iOS_Common_Kit.EvamEventType : Swift.RawRepresentable {}
 extension Evam_iOS_Common_Kit.EvamNotificationPermissionStatusType : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.EvamNotificationPermissionStatusType : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.EvamNotificationPermissionStatusType : Swift.RawRepresentable {}
+extension Evam_iOS_Common_Kit.SendEventStatus : Swift.Equatable {}
+extension Evam_iOS_Common_Kit.SendEventStatus : Swift.Hashable {}
+extension Evam_iOS_Common_Kit.SendEventStatus : Swift.RawRepresentable {}
 extension Evam_iOS_Common_Kit.EvamNetworkStatus : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.EvamNetworkStatus : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.EvamNetworkStatus : Swift.RawRepresentable {}
