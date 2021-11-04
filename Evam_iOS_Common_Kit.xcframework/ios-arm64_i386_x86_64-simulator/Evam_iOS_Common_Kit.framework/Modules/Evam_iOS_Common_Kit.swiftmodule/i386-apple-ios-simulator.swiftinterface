@@ -7,7 +7,6 @@ import Swift
 import SystemConfiguration
 import UIKit
 import UserNotifications
-import WebKit
 public protocol PreferencesManagerProtocol {
   var mSharedPreferences: Foundation.UserDefaults { get set }
 }
