@@ -269,7 +269,7 @@ public class Configuration : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
-public class InitializationConfiguration : Swift.Codable {
+public class EvamInitConfig : Swift.Codable {
   public var apiUri: Swift.String
   public var listenerUri: Swift.String
   public var authorization: Swift.String
@@ -325,7 +325,7 @@ public class Evam {
   public static var initializeStatusType: Evam_iOS_Common_Kit.InitializeStatusType
   public static var sendEventStatus: Evam_iOS_Common_Kit.SendEventStatus
   public init()
-  public static func initialize(configuration: Evam_iOS_Common_Kit.InitializationConfiguration)
+  public static func initialize(configuration: Evam_iOS_Common_Kit.EvamInitConfig)
   public static func initialize(apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, localOrigin: Swift.String, actorId: Swift.String? = nil, applicationName: Swift.String = "", offlineCachingDisabled: Swift.Bool = false)
   public static func updateActorId(newActorId: Swift.String)
   public static func setPushToken(token: Swift.String)
