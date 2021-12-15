@@ -310,6 +310,12 @@ public class Configuration : Swift.Codable {
   required public init(from decoder: Swift.Decoder) throws
 }
 public struct EvamInitConfig {
+  public var apiUri: Swift.String
+  public var listenerUri: Swift.String
+  public var authorization: Swift.String
+  public var actorId: Swift.String?
+  public var applicationName: Swift.String
+  public var offlineCachingDisabled: Swift.Bool
 }
 public class Evam {
   public static let sharedInstance: Evam_iOS_Common_Kit.Evam
