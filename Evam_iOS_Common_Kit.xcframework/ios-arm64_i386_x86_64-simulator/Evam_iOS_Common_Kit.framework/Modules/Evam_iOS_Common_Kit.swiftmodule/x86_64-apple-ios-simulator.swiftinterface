@@ -474,9 +474,7 @@ public class JSONRequest<T> where T : Swift.Decodable, T : Swift.Encodable {
   public func checkNetworkConnectivity(callBack: @escaping (Swift.Bool) -> ())
   @objc deinit
 }
-@objc @_hasMissingDesignatedInitializers public class EvamInitializationConfig : ObjectiveC.NSObject {
-  @objc override dynamic public init()
-  @objc deinit
+public struct EvamInitializationConfig {
 }
 @_hasMissingDesignatedInitializers public class NotificationManager {
   public class func didReceive(_ request: UserNotifications.UNNotificationRequest, withContentHandler contentHandler: @escaping (UserNotifications.UNNotificationContent) -> Swift.Void)

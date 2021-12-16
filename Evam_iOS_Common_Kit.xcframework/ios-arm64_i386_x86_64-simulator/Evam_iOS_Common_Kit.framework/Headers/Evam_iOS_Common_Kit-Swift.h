@@ -192,7 +192,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 @import CoreGraphics;
 @import Foundation;
-@import ObjectiveC;
 @import UIKit;
 #endif
 
@@ -218,13 +217,6 @@ SWIFT_CLASS("_TtC19Evam_iOS_Common_Kit10EvamButton")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC19Evam_iOS_Common_Kit24EvamInitializationConfig")
-@interface EvamInitializationConfig : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class NSString;
@@ -459,7 +451,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 @import CoreGraphics;
 @import Foundation;
-@import ObjectiveC;
 @import UIKit;
 #endif
 
@@ -485,13 +476,6 @@ SWIFT_CLASS("_TtC19Evam_iOS_Common_Kit10EvamButton")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC19Evam_iOS_Common_Kit24EvamInitializationConfig")
-@interface EvamInitializationConfig : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class NSString;
@@ -726,7 +710,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 @import CoreGraphics;
 @import Foundation;
-@import ObjectiveC;
 @import UIKit;
 #endif
 
@@ -752,13 +735,6 @@ SWIFT_CLASS("_TtC19Evam_iOS_Common_Kit10EvamButton")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC19Evam_iOS_Common_Kit24EvamInitializationConfig")
-@interface EvamInitializationConfig : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class NSString;
