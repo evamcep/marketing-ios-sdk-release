@@ -474,6 +474,8 @@ public class JSONRequest<T> where T : Swift.Decodable, T : Swift.Encodable {
   public func checkNetworkConnectivity(callBack: @escaping (Swift.Bool) -> ())
   @objc deinit
 }
+public struct EvamInitializationConfig {
+}
 @_hasMissingDesignatedInitializers public class NotificationManager {
   public class func didReceive(_ request: UserNotifications.UNNotificationRequest, withContentHandler contentHandler: @escaping (UserNotifications.UNNotificationContent) -> Swift.Void)
   public class func handleNotification(userInfo: [Swift.AnyHashable : Any], response: UserNotifications.UNNotificationResponse, actionCallback: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemAction?) -> ())
