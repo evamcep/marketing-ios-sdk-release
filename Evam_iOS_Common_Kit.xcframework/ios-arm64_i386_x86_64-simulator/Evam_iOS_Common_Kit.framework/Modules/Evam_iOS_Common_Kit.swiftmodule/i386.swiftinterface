@@ -309,7 +309,8 @@ public class Configuration : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
-public struct EvamInitConfig {
+@_hasMissingDesignatedInitializers public class EvamInitConfig {
+  @objc deinit
 }
 public class Evam {
   public static let sharedInstance: Evam_iOS_Common_Kit.Evam
