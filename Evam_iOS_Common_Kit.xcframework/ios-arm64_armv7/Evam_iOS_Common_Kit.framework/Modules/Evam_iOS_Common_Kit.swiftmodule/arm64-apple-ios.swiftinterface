@@ -310,7 +310,7 @@ public class Configuration : Swift.Codable {
   required public init(from decoder: Swift.Decoder) throws
 }
 public class EvamInitConfig {
-  public init(apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false)
+  public init(bundle: Foundation.Bundle, apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false)
   @objc deinit
 }
 public class Evam {
@@ -475,9 +475,6 @@ public class JSONRequest<T> where T : Swift.Decodable, T : Swift.Encodable {
   public var networkStatusCallback: ((Swift.Bool) -> ())?
   public func checkNetworkConnectivity(callBack: @escaping (Swift.Bool) -> ())
   @objc deinit
-}
-public struct EvamInitializationConfig {
-  public init(apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false)
 }
 @_hasMissingDesignatedInitializers public class NotificationManager {
   public class func didReceive(_ request: UserNotifications.UNNotificationRequest, withContentHandler contentHandler: @escaping (UserNotifications.UNNotificationContent) -> Swift.Void)
