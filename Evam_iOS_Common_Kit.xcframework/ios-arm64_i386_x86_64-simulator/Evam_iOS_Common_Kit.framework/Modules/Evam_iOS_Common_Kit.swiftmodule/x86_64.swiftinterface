@@ -417,8 +417,8 @@ public class EvamEventManager {
 public func UIColorFromRGB(_ rgbValue: Swift.UInt) -> UIKit.UIColor
 @objc @_inheritsConvenienceInitializers open class EvamViewController : UIKit.UIViewController {
   @objc override dynamic open func viewDidLoad()
-  @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
   @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
   @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
   @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
   @objc required dynamic public init?(coder: Foundation.NSCoder)

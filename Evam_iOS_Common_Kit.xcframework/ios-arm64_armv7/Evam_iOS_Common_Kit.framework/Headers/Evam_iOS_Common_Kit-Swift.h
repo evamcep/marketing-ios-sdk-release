@@ -244,8 +244,8 @@ SWIFT_CLASS("_TtC19Evam_iOS_Common_Kit9EvamPopup")
 SWIFT_CLASS("_TtC19Evam_iOS_Common_Kit18EvamViewController")
 @interface EvamViewController : UIViewController
 - (void)viewDidLoad;
-- (void)viewDidAppear:(BOOL)animated;
 - (void)viewWillAppear:(BOOL)animated;
+- (void)viewDidAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
@@ -504,8 +504,8 @@ SWIFT_CLASS("_TtC19Evam_iOS_Common_Kit9EvamPopup")
 SWIFT_CLASS("_TtC19Evam_iOS_Common_Kit18EvamViewController")
 @interface EvamViewController : UIViewController
 - (void)viewDidLoad;
-- (void)viewDidAppear:(BOOL)animated;
 - (void)viewWillAppear:(BOOL)animated;
+- (void)viewDidAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
