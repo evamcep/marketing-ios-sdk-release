@@ -45,6 +45,7 @@ public enum EvamEventType : Swift.String {
   case ACTOR_CHANGE
   case PUSH_NOTIFICATION_CLICKED
   case PUSH_NOTIFICATION_DENIED
+  case PUSH_NOTIFICATION_DISMISSED
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -409,6 +410,7 @@ public class EvamEventManager {
   public static func sendAppForegroundEvent()
   public static func sendChangeActorEvent(controller: UIKit.UIViewController?, oldActorId: Swift.String, newActorId: Swift.String)
   public static func sendAppCrashEvent(controller: UIKit.UIViewController)
+  public static func sendNotificationDismissEvent()
   public static func sendEvent(controller: UIKit.UIViewController?, eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Swift.String]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
   public static func sendNotificationPermissionStatusEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, notificationPermissionStatusType: Evam_iOS_Common_Kit.EvamNotificationPermissionStatusType)
   public static func handlePopupAction(controller: UIKit.UIViewController, action: Evam_iOS_Common_Kit.AppCommunicationItem?, fromNotification: Swift.Bool, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
