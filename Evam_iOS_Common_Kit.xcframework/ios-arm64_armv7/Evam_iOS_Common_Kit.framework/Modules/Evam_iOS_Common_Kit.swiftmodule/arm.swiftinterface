@@ -43,6 +43,7 @@ public enum EvamEventType : Swift.String {
   case APP_FOREGROUND
   case APP_CRASH
   case ACTOR_CHANGE
+  case PUSH_NOTIFICATION_RECEIVED
   case PUSH_NOTIFICATION_CLICKED
   case PUSH_NOTIFICATION_DENIED
   case PUSH_NOTIFICATION_DISMISSED
@@ -400,7 +401,7 @@ extension Reachability {
 }
 public class EvamEventManager {
   public init()
-  public static func sendNotificationEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?, userClick: Swift.Bool = false, onSelfClick: Swift.Bool = false)
+  public static func sendNotificationEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?, userClick: Swift.Bool = false, onSelfClick: Swift.Bool = false, onDismissClick: Swift.Bool = false)
   public static func sendEvent(event: Evam_iOS_Common_Kit.AppCommunicationItem, choice: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, button: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, fromNotification: Swift.Bool = false, userClick: Swift.Bool = false)
   public static func sendPageInEvent(controller: UIKit.UIViewController?)
   public static func sendPageInEvent(controller: UIKit.UIViewController?, pageName: Swift.String)
@@ -410,7 +411,7 @@ public class EvamEventManager {
   public static func sendAppForegroundEvent()
   public static func sendChangeActorEvent(controller: UIKit.UIViewController?, oldActorId: Swift.String, newActorId: Swift.String)
   public static func sendAppCrashEvent(controller: UIKit.UIViewController)
-  public static func sendNotificationDismissEvent()
+  public static func sendNotificationDismissEvent(userInfo: [Swift.AnyHashable : Any])
   public static func sendEvent(controller: UIKit.UIViewController?, eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Swift.String]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
   public static func sendNotificationPermissionStatusEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, notificationPermissionStatusType: Evam_iOS_Common_Kit.EvamNotificationPermissionStatusType)
   public static func handlePopupAction(controller: UIKit.UIViewController, action: Evam_iOS_Common_Kit.AppCommunicationItem?, fromNotification: Swift.Bool, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
