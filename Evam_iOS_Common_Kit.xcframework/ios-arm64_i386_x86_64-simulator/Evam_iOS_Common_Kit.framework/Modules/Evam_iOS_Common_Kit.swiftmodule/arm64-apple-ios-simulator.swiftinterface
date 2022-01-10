@@ -75,6 +75,15 @@ public enum SendEventStatus : Swift.String {
     get
   }
 }
+public enum SendLifeCycleEventStatus : Swift.String {
+  case ENABLED
+  case DISABLED
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
 public enum EvamNetworkStatus : Swift.String {
   case ONLINE
   case OFFLINE
@@ -317,8 +326,10 @@ public class EvamInitConfig {
 }
 public class Evam {
   public static let sharedInstance: Evam_iOS_Common_Kit.Evam
-  public static var initializeStatusType: Evam_iOS_Common_Kit.InitializeStatusType
   public static var sendEventStatus: Evam_iOS_Common_Kit.SendEventStatus
+  public static var sendApplicationLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus
+  public static var sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus
+  public static var initializeStatusType: Evam_iOS_Common_Kit.InitializeStatusType
   public init()
   public static func initialize(configuration: Evam_iOS_Common_Kit.EvamInitConfig)
   public static func initialize(apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, localOrigin: Swift.String, actorId: Swift.String? = nil, applicationName: Swift.String = "", offlineCachingDisabled: Swift.Bool = false)
@@ -504,6 +515,9 @@ extension Evam_iOS_Common_Kit.EvamNotificationPermissionStatusType : Swift.RawRe
 extension Evam_iOS_Common_Kit.SendEventStatus : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.SendEventStatus : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.SendEventStatus : Swift.RawRepresentable {}
+extension Evam_iOS_Common_Kit.SendLifeCycleEventStatus : Swift.Equatable {}
+extension Evam_iOS_Common_Kit.SendLifeCycleEventStatus : Swift.Hashable {}
+extension Evam_iOS_Common_Kit.SendLifeCycleEventStatus : Swift.RawRepresentable {}
 extension Evam_iOS_Common_Kit.EvamNetworkStatus : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.EvamNetworkStatus : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.EvamNetworkStatus : Swift.RawRepresentable {}
