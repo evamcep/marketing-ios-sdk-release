@@ -14,11 +14,14 @@ public protocol PreferencesManagerProtocol {
   public var mSharedPreferences: Foundation.UserDefaults
   @objc deinit
 }
-public enum InitializeStatusType {
-  case initializing, initialized, not_initialized, initialize_failed
-  public static func == (a: Evam_iOS_Common_Kit.InitializeStatusType, b: Evam_iOS_Common_Kit.InitializeStatusType) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
+public enum InitializeStatusType : Swift.String {
+  case INITIALIZING
+  case INITIALIZED
+  case NOT_INITIALIZED
+  case INITIALIZE_FAILED
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
     get
   }
 }
@@ -329,9 +332,9 @@ public class Evam {
   public static var sendEventStatus: Evam_iOS_Common_Kit.SendEventStatus
   public static var sendApplicationLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus
   public static var sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus
-  public static var initializeStatusType: Evam_iOS_Common_Kit.InitializeStatusType
   public init()
   public static func initialize(configuration: Evam_iOS_Common_Kit.EvamInitConfig)
+  @available(*, deprecated, renamed: "initialize")
   public static func initialize(apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, localOrigin: Swift.String, actorId: Swift.String? = nil, applicationName: Swift.String = "", offlineCachingDisabled: Swift.Bool = false)
   public static func updateActorId(newActorId: Swift.String)
   public static func setPushToken(token: Swift.String)
@@ -339,6 +342,7 @@ public class Evam {
   public static func applicationDidBecomeActive(application: UIKit.UIApplication)
   public static func applicationWillResignActive(application: UIKit.UIApplication)
   public static func applicationDidReceiveRemoteNotification(userInfo: [Swift.AnyHashable : Any])
+  public static func isInitialized() -> Swift.Bool
   @objc deinit
 }
 public enum ReachabilityError : Swift.Error {
@@ -500,6 +504,7 @@ public class JSONRequest<T> where T : Swift.Decodable, T : Swift.Encodable {
 }
 extension Evam_iOS_Common_Kit.InitializeStatusType : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.InitializeStatusType : Swift.Hashable {}
+extension Evam_iOS_Common_Kit.InitializeStatusType : Swift.RawRepresentable {}
 @available(*, deprecated, renamed: "EvamEventType")
 extension Evam_iOS_Common_Kit.EvamLogType : Swift.Equatable {}
 @available(*, deprecated, renamed: "EvamEventType")
