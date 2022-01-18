@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
 // swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Evam_iOS_Common_Kit
 @_exported import Evam_iOS_Common_Kit
 import Foundation
@@ -19,8 +19,8 @@ public enum InitializeStatusType : Swift.String {
   case INITIALIZED
   case NOT_INITIALIZED
   case INITIALIZE_FAILED
-  public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
     get
   }
@@ -33,8 +33,8 @@ public enum EvamLogType : Swift.String {
   case APP_FOREGROUND
   case APP_CRASH
   case ACTOR_CHANGE
-  public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
     get
   }
@@ -50,8 +50,8 @@ public enum EvamEventType : Swift.String {
   case PUSH_NOTIFICATION_CLICKED
   case PUSH_NOTIFICATION_DENIED
   case PUSH_NOTIFICATION_DISMISSED
-  public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
     get
   }
@@ -63,8 +63,8 @@ public enum EvamNotificationPermissionStatusType : Swift.String {
   case PROVISIONAL
   case EPHEMERAL
   case UNKNOWN
-  public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
     get
   }
@@ -72,8 +72,8 @@ public enum EvamNotificationPermissionStatusType : Swift.String {
 public enum SendEventStatus : Swift.String {
   case ENABLED
   case DISABLED
-  public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
     get
   }
@@ -81,8 +81,8 @@ public enum SendEventStatus : Swift.String {
 public enum SendLifeCycleEventStatus : Swift.String {
   case ENABLED
   case DISABLED
-  public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
     get
   }
@@ -90,8 +90,8 @@ public enum SendLifeCycleEventStatus : Swift.String {
 public enum EvamNetworkStatus : Swift.String {
   case ONLINE
   case OFFLINE
-  public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
     get
   }
@@ -114,31 +114,31 @@ public enum EvamPopupStyle {
     get
   }
   public static func == (a: Evam_iOS_Common_Kit.EvamPopupStyle, b: Evam_iOS_Common_Kit.EvamPopupStyle) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
+  public func hash(into hasher: inout Swift.Hasher)
 }
 public enum EvamAnimationStyle {
   case noAnimation, topToBottom, bottomToTop, leftToRight, rightToLeft
   public static func == (a: Evam_iOS_Common_Kit.EvamAnimationStyle, b: Evam_iOS_Common_Kit.EvamAnimationStyle) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
+  public func hash(into hasher: inout Swift.Hasher)
 }
 public enum EvamButtonActionType {
   case none, selector, closure
   public static func == (a: Evam_iOS_Common_Kit.EvamButtonActionType, b: Evam_iOS_Common_Kit.EvamButtonActionType) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
+  public func hash(into hasher: inout Swift.Hasher)
 }
 public enum EvamActionType : Swift.String {
   case deep, url
-  public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
     get
   }
@@ -146,10 +146,10 @@ public enum EvamActionType : Swift.String {
 public enum EvamAlertButtonLayout {
   case horizontal, vertical
   public static func == (a: Evam_iOS_Common_Kit.EvamAlertButtonLayout, b: Evam_iOS_Common_Kit.EvamAlertButtonLayout) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
+  public func hash(into hasher: inout Swift.Hasher)
 }
 @objc @_inheritsConvenienceInitializers open class EvamButton : UIKit.UIButton {
   public struct ShowTimeoutConfiguration {
@@ -242,16 +242,16 @@ public typealias DismissBlock = () -> Swift.Void
   public var scenario: Swift.String?
   public var action: Evam_iOS_Common_Kit.AppCommunicationItemAction?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunication : Swift.Codable {
   public var model: [Evam_iOS_Common_Kit.AppCommunicationItem]?
   public var configuration: Evam_iOS_Common_Kit.Configuration?
   public var blockedEvents: [Evam_iOS_Common_Kit.BlockedEvents]?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItem : Swift.Codable {
   public var type: Swift.String?
@@ -272,37 +272,37 @@ public typealias DismissBlock = () -> Swift.Void
   public var scenario: Swift.String?
   public var bgColor: Swift.String?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 public class Configuration : Swift.Codable {
   public var id: Swift.String?
   public var stopAllEvents: Swift.Bool
   public var offlineQueueSize: Swift.Int?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 @_hasMissingDesignatedInitializers public class BlockedEvents : Swift.Codable {
   public var name: Swift.String?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItemHeader : Swift.Codable {
   public var text: Swift.String?
   public var color: Swift.String?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItemText : Swift.Codable {
   public var text: Swift.String?
   public var color: Swift.String?
   public var bgColor: Swift.String?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItemAction : Swift.Codable {
   public var link: Swift.String?
@@ -310,8 +310,8 @@ public class Configuration : Swift.Codable {
   public func isDeepType() -> Swift.Bool
   public func isUrlType() -> Swift.Bool
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItemButton : Swift.Codable {
   public var id: Swift.String?
@@ -320,8 +320,8 @@ public class Configuration : Swift.Codable {
   public var textColor: Swift.String?
   public var action: Evam_iOS_Common_Kit.AppCommunicationItemAction?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 public class EvamInitConfig {
   public init(bundle: Foundation.Bundle, apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false, sendApplicationLifeCycleEventEnabled: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED)
@@ -368,10 +368,10 @@ public class Reachability {
     @available(*, deprecated, renamed: "unavailable")
     public static let none: Evam_iOS_Common_Kit.Reachability.Connection
     public static func == (a: Evam_iOS_Common_Kit.Reachability.Connection, b: Evam_iOS_Common_Kit.Reachability.Connection) -> Swift.Bool
-    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
+    public func hash(into hasher: inout Swift.Hasher)
   }
   public var whenReachable: Evam_iOS_Common_Kit.Reachability.NetworkReachable?
   public var whenUnreachable: Evam_iOS_Common_Kit.Reachability.NetworkUnreachable?
@@ -439,9 +439,9 @@ public func UIColorFromRGB(_ rgbValue: Swift.UInt) -> UIKit.UIColor
   @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
   @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
   @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
+  @objc deinit
   @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
-  @objc deinit
 }
 @_hasMissingDesignatedInitializers public class EvamConfig {
   final public let ENVIRONMENT_SANDBOX: Swift.String
@@ -466,8 +466,8 @@ public protocol ServiceClientProtocol {
 public enum HTTPMethod : Swift.String {
   case post
   case get
-  public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
     get
   }
