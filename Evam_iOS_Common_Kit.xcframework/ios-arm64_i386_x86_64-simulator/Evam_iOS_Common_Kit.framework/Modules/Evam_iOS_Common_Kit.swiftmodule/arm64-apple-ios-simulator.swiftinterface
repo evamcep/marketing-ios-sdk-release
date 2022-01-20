@@ -342,6 +342,7 @@ public class Evam {
   public static func applicationDidBecomeActive(application: UIKit.UIApplication)
   public static func applicationWillResignActive(application: UIKit.UIApplication)
   public static func applicationDidReceiveRemoteNotification(userInfo: [Swift.AnyHashable : Any])
+  public static func getInitializeStatusType() -> Evam_iOS_Common_Kit.InitializeStatusType
   public static func isInitialized() -> Swift.Bool
   @objc deinit
 }
