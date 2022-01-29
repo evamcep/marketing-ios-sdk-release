@@ -69,6 +69,16 @@ public enum EvamNotificationPermissionStatusType : Swift.String {
     get
   }
 }
+public enum EvamNetworkCapability : Swift.String {
+  case WIFI
+  case CELLULAR
+  case NONE
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
 public enum SendEventStatus : Swift.String {
   case ENABLED
   case DISABLED
@@ -324,7 +334,7 @@ public class Configuration : Swift.Codable {
   required public init(from decoder: Swift.Decoder) throws
 }
 public class EvamInitConfig {
-  public init(bundle: Foundation.Bundle, apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false, sendApplicationLifeCycleEventEnabled: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED)
+  public init(bundle: Foundation.Bundle, apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false, sendApplicationLifeCycleEventEnabled: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, isWifiStatusRequired: Swift.Bool = true, isDiskCapacityRequired: Swift.Bool = true, isBatteryStatusRequired: Swift.Bool = true)
   @objc deinit
 }
 public class Evam {
@@ -516,6 +526,9 @@ extension Evam_iOS_Common_Kit.EvamEventType : Swift.RawRepresentable {}
 extension Evam_iOS_Common_Kit.EvamNotificationPermissionStatusType : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.EvamNotificationPermissionStatusType : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.EvamNotificationPermissionStatusType : Swift.RawRepresentable {}
+extension Evam_iOS_Common_Kit.EvamNetworkCapability : Swift.Equatable {}
+extension Evam_iOS_Common_Kit.EvamNetworkCapability : Swift.Hashable {}
+extension Evam_iOS_Common_Kit.EvamNetworkCapability : Swift.RawRepresentable {}
 extension Evam_iOS_Common_Kit.SendEventStatus : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.SendEventStatus : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.SendEventStatus : Swift.RawRepresentable {}
