@@ -434,6 +434,7 @@ public class EvamEventManager {
   public static func sendChangeActorEvent(controller: UIKit.UIViewController?, oldActorId: Swift.String, newActorId: Swift.String)
   public static func sendAppCrashEvent(controller: UIKit.UIViewController)
   public static func sendPushNotificationDismissedEvent(userInfo: [Swift.AnyHashable : Any])
+  public static func sendPushNotificationBodyClickedEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?)
   public static func sendPushNotificationButtonClickedEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?, onBodyClick: Swift.Bool?)
   public static func sendNotificationPermissionStatusEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, notificationPermissionStatusType: Evam_iOS_Common_Kit.EvamNotificationPermissionStatusType)
   public static func sendNotificationEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?, onButtonClick: Swift.Bool = false, onBodyClick: Swift.Bool = false, onDismissClick: Swift.Bool = false)
