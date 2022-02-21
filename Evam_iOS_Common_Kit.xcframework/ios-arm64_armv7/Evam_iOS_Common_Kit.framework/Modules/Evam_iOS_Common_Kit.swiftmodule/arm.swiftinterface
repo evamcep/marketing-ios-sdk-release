@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
 // swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Evam_iOS_Common_Kit
+import CoreLocation
 @_exported import Evam_iOS_Common_Kit
 import Foundation
 import Swift
@@ -334,7 +335,7 @@ public class Configuration : Swift.Codable {
   required public init(from decoder: Swift.Decoder) throws
 }
 public class EvamInitConfig {
-  public init(bundle: Foundation.Bundle, apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false, sendApplicationLifeCycleEventEnabled: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, isWifiStatusRequired: Swift.Bool = true, isDiskCapacityRequired: Swift.Bool = true, isBatteryStatusRequired: Swift.Bool = true)
+  public init(bundle: Foundation.Bundle, apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false, sendApplicationLifeCycleEventEnabled: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, isWifiStatusRequired: Swift.Bool = true, isDiskCapacityRequired: Swift.Bool = true, isBatteryStatusRequired: Swift.Bool = true, isLocationRequired: Swift.Bool = true)
   @objc deinit
 }
 public class Evam {
