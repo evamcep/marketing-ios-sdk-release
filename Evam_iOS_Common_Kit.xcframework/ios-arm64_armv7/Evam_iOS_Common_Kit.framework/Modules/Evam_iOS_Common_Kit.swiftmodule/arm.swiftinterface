@@ -428,7 +428,6 @@ extension Evam_iOS_Common_Kit.Reachability {
   }
 }
 public class EvamEventManager {
-  public static var mIsTerminated: Swift.Bool
   public init()
   public static func sendPageInEvent(controller: UIKit.UIViewController?, pageName: Swift.String? = nil)
   public static func sendPageOutEvent(controller: UIKit.UIViewController?, pageName: Swift.String? = nil)
