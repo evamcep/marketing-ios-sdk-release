@@ -253,6 +253,7 @@ public typealias DismissBlock = () -> Swift.Void
   public var applicationName: Swift.String?
   public var scenario: Swift.String?
   public var action: Evam_iOS_Common_Kit.AppCommunicationItemAction?
+  public var images: Swift.String?
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
