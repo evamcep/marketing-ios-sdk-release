@@ -52,6 +52,7 @@ public enum EvamEventType : Swift.String {
   case PUSH_NOTIFICATION_CLICKED
   case PUSH_NOTIFICATION_DENIED
   case PUSH_NOTIFICATION_DISMISSED
+  case INSTALL
   case APPLICATION_ERROR
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
@@ -254,6 +255,7 @@ public typealias DismissBlock = () -> Swift.Void
   public var applicationName: Swift.String?
   public var scenario: Swift.String?
   public var action: Evam_iOS_Common_Kit.AppCommunicationItemAction?
+  public var images: Swift.String?
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
@@ -430,6 +432,7 @@ extension Evam_iOS_Common_Kit.Reachability {
 }
 public class EvamEventManager {
   public init()
+  public static func sendInstallEvent()
   public static func sendPageInEvent(controller: UIKit.UIViewController?, pageName: Swift.String? = nil)
   public static func sendPageOutEvent(controller: UIKit.UIViewController?, pageName: Swift.String? = nil)
   public static func sendAppBackgroundEvent()
