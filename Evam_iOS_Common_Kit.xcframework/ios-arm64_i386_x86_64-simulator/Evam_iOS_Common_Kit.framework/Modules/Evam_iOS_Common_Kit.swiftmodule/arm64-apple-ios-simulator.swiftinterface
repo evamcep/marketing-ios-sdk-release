@@ -362,6 +362,13 @@ public class Evam {
   public static func isInitialized() -> Swift.Bool
   @objc deinit
 }
+@_hasMissingDesignatedInitializers public class EvamSliderPushHelper {
+  public static func getImageList(notification: UserNotifications.UNNotification) -> [Swift.String]
+  public static func getSize(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath, listCount: Swift.Int) -> CoreGraphics.CGSize
+  public static func scrollNextItem(collectionView: UIKit.UICollectionView!, var currentIndex: Swift.Int, listCount: Swift.Int) -> Swift.Int
+  public static func scrollPreviousItem(collectionView: UIKit.UICollectionView!, currentIndex: Swift.Int, listCount: Swift.Int) -> Swift.Int
+  @objc deinit
+}
 public enum ReachabilityError : Swift.Error {
   case failedToCreateWithAddress(Darwin.sockaddr, Swift.Int32)
   case failedToCreateWithHostname(Swift.String, Swift.Int32)
