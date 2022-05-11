@@ -519,7 +519,7 @@ public class JSONRequest<T> where T : Swift.Decodable, T : Swift.Encodable {
   public class func didReceive(_ request: UserNotifications.UNNotificationRequest, withContentHandler contentHandler: @escaping (UserNotifications.UNNotificationContent) -> Swift.Void)
   public class func handleNotification(userInfo: [Swift.AnyHashable : Any], response: UserNotifications.UNNotificationResponse, actionCallback: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemAction?) -> ())
   public static func refreshNotificationPermissionStatusType()
-  public static func createSliderPushNotification(_ notification: UserNotifications.UNNotification, collectionView: UIKit.UICollectionView!)
+  public static func createSliderPushNotification(notification: UserNotifications.UNNotification, collectionView: UIKit.UICollectionView!) -> [Swift.String]
   @objc deinit
 }
 extension Evam_iOS_Common_Kit.InitializeStatusType : Swift.Equatable {}
