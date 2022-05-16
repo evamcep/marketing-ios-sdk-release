@@ -256,7 +256,7 @@ public typealias DismissBlock = () -> Swift.Void
   public var applicationName: Swift.String?
   public var scenario: Swift.String?
   public var action: Evam_iOS_Common_Kit.AppCommunicationItemAction?
-  public var images: Swift.String?
+  public var images: [Swift.String]?
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
@@ -364,8 +364,8 @@ public class Evam {
 }
 @_hasMissingDesignatedInitializers public class EvamSliderPushHelper {
   public static func getImageList(notification: UserNotifications.UNNotification) -> [Swift.String]
-  public static func getSize(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath, listCount: Swift.Int) -> CoreGraphics.CGSize
-  public static func scrollNextItem(collectionView: UIKit.UICollectionView!, var currentIndex: Swift.Int, listCount: Swift.Int) -> Swift.Int
+  public static func getSize(_ collectionView: UIKit.UICollectionView, sizeForItemAt indexPath: Foundation.IndexPath, listCount: Swift.Int) -> CoreGraphics.CGSize
+  public static func scrollNextItem(collectionView: UIKit.UICollectionView!, currentIndex: Swift.Int, listCount: Swift.Int) -> Swift.Int
   public static func scrollPreviousItem(collectionView: UIKit.UICollectionView!, currentIndex: Swift.Int, listCount: Swift.Int) -> Swift.Int
   @objc deinit
 }
@@ -526,7 +526,6 @@ public class JSONRequest<T> where T : Swift.Decodable, T : Swift.Encodable {
   public class func didReceive(_ request: UserNotifications.UNNotificationRequest, withContentHandler contentHandler: @escaping (UserNotifications.UNNotificationContent) -> Swift.Void)
   public class func handleNotification(userInfo: [Swift.AnyHashable : Any], response: UserNotifications.UNNotificationResponse, actionCallback: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemAction?) -> ())
   public static func refreshNotificationPermissionStatusType()
-  public static func createSliderPushNotification(notification: UserNotifications.UNNotification, collectionView: UIKit.UICollectionView!) -> [Swift.String]
   @objc deinit
 }
 extension Evam_iOS_Common_Kit.InitializeStatusType : Swift.Equatable {}
