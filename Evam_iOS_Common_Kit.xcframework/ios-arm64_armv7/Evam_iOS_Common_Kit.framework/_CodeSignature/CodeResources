@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/Evam_iOS_Common_Kit.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		eoLissJp///uWNOQR5tyfAHNtBE=
+		I6cZQQoIY+B0x6pwCmLTaERT/Co=
 		</data>
 		<key>Modules/Evam_iOS_Common_Kit.swiftmodule/armv7-apple-ios.swiftdoc</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Modules/Evam_iOS_Common_Kit.swiftmodule/armv7-apple-ios.swiftmodule</key>
 		<data>
-		PqDrLvYkBS385nuQgvFE9p2mymg=
+		/pFLuC6ymc2AQXS4OumQAooQjD8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -110,11 +110,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			eoLissJp///uWNOQR5tyfAHNtBE=
+			I6cZQQoIY+B0x6pwCmLTaERT/Co=
 			</data>
 			<key>hash2</key>
 			<data>
-			kpZtLwHX63xNoz/zwPfDTS+1KUTKBRgV0fQXypRvoDQ=
+			2kL9N0rUPDyQ1+Puj0rX9gn3OZxWXodsHfEL+S8G/7Y=
 			</data>
 		</dict>
 		<key>Modules/Evam_iOS_Common_Kit.swiftmodule/armv7-apple-ios.swiftdoc</key>
@@ -143,11 +143,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			PqDrLvYkBS385nuQgvFE9p2mymg=
+			/pFLuC6ymc2AQXS4OumQAooQjD8=
 			</data>
 			<key>hash2</key>
 			<data>
-			6c6NI1WjyRqoXwMdzXRCcc3ftIejpFa/JVpeXhdak2s=
+			NnH5Tyu2h1u5Qp/HpYnNQTHSQQFwKf+VHkn3hoLpSmY=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
