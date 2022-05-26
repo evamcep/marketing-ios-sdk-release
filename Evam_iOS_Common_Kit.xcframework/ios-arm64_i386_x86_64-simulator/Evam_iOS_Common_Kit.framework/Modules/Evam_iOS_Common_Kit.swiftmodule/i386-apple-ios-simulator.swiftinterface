@@ -354,6 +354,7 @@ public class Evam {
   public static func initialize(apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, localOrigin: Swift.String, actorId: Swift.String? = nil, applicationName: Swift.String = "", offlineCachingDisabled: Swift.Bool = false)
   public static func updateActorId(newActorId: Swift.String)
   public static func setPushToken(token: Swift.String)
+  public static func setEvamApnsToken(deviceToken: Foundation.Data)
   public static func didFinishLaunchingWithOptions(application: UIKit.UIApplication)
   public static func applicationDidBecomeActive(application: UIKit.UIApplication)
   public static func applicationWillResignActive(application: UIKit.UIApplication)
