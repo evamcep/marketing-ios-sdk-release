@@ -4,10 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Assets.car</key>
-		<data>
-		EZOyTcizgqDsCzzJcrjmnJ+sveM=
-		</data>
 		<key>Headers/EvamSqliteManager.h</key>
 		<data>
 		XmBC6Vwz3jxVoCOkmOdZ9BPvKrU=
@@ -34,7 +30,7 @@
 		</data>
 		<key>Modules/Evam_iOS_Common_Kit.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		+wBIFdYeuInwbEziprrjLSz9R2c=
+		CeOPPSHR2wvCJRRabU2jZ2T/w+0=
 		</data>
 		<key>Modules/Evam_iOS_Common_Kit.swiftmodule/armv7-apple-ios.swiftdoc</key>
 		<data>
@@ -46,7 +42,7 @@
 		</data>
 		<key>Modules/Evam_iOS_Common_Kit.swiftmodule/armv7-apple-ios.swiftmodule</key>
 		<data>
-		pcb2wOzVSrgqySd/FexmjOBM8zQ=
+		ibq/ngCmQlvLUapq+g3GONL8glQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -55,17 +51,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Assets.car</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			EZOyTcizgqDsCzzJcrjmnJ+sveM=
-			</data>
-			<key>hash2</key>
-			<data>
-			luZ4NDdjCc/llTM1xt7Lg7AX9RFDsdpka5FKeWxwVdE=
-			</data>
-		</dict>
 		<key>Headers/EvamSqliteManager.h</key>
 		<dict>
 			<key>hash</key>
@@ -125,11 +110,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+wBIFdYeuInwbEziprrjLSz9R2c=
+			CeOPPSHR2wvCJRRabU2jZ2T/w+0=
 			</data>
 			<key>hash2</key>
 			<data>
-			6lcC4L8ZFnf7g+TSmLVOQF8GhRpmG2CeHvL4em2+xeY=
+			stPYjS/E2XsF+3vaZ5XyXHzD40D6GGRTBCtR48fYY6A=
 			</data>
 		</dict>
 		<key>Modules/Evam_iOS_Common_Kit.swiftmodule/armv7-apple-ios.swiftdoc</key>
@@ -158,11 +143,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pcb2wOzVSrgqySd/FexmjOBM8zQ=
+			ibq/ngCmQlvLUapq+g3GONL8glQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			uqALzPPTujSuJvoEk/iR7B8tVFdEmK34hiFLe0JMN+M=
+			R3FeVcquVo6SNtcyyCOadwfx9t3DvjtwVuWVsCjXoa4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
