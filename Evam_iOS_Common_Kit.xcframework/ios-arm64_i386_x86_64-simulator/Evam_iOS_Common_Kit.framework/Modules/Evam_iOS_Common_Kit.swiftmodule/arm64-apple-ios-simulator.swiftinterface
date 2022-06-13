@@ -289,7 +289,6 @@ public typealias DismissBlock = () -> Swift.Void
   public var bgColor: Swift.String?
   public var question: Evam_iOS_Common_Kit.AppCommunicationItemQuestion?
   public var emojiList: [Evam_iOS_Common_Kit.AppCommunicationItemButton]?
-  public var images: [Swift.String]?
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
