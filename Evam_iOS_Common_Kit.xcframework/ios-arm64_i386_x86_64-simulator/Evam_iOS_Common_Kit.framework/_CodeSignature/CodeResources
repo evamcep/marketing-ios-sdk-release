@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/Evam_iOS_Common_Kit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		mC/IqmG+4apgsvoi8PZ10DWfc/M=
+		TE1yVX+mv6t0HyPluuGx+GT52jM=
 		</data>
 		<key>Modules/Evam_iOS_Common_Kit.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Modules/Evam_iOS_Common_Kit.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<data>
-		oNmae0OCB6J69TRnkqQWk/W0P/c=
+		HcIL4HryQ1DHRUMFgcHdJcO7/UA=
 		</data>
 		<key>Modules/Evam_iOS_Common_Kit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Modules/Evam_iOS_Common_Kit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		yJXrtTb1eW3AqTxFhE1rWcIH9xs=
+		zutbC/Z+rn8+jjHsMCIew9T/Tkg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -122,11 +122,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mC/IqmG+4apgsvoi8PZ10DWfc/M=
+			TE1yVX+mv6t0HyPluuGx+GT52jM=
 			</data>
 			<key>hash2</key>
 			<data>
-			E3Hg4hsS5F+qaObjoprfjRGCrBBU2pVFZsu1XVgb6xw=
+			vIMEeUqfjbsYVQs2Sr2K+2wNPZK204oRKbQHU4E27Is=
 			</data>
 		</dict>
 		<key>Modules/Evam_iOS_Common_Kit.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
@@ -155,11 +155,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oNmae0OCB6J69TRnkqQWk/W0P/c=
+			HcIL4HryQ1DHRUMFgcHdJcO7/UA=
 			</data>
 			<key>hash2</key>
 			<data>
-			054etSxeybTEC9tAAdAkNlkhh/fneQGYaXmgtzdjAco=
+			oRoBY9rPSl0ApaAK8WELAFGhpVahjWSf3d25k/BC7NY=
 			</data>
 		</dict>
 		<key>Modules/Evam_iOS_Common_Kit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -188,11 +188,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			yJXrtTb1eW3AqTxFhE1rWcIH9xs=
+			zutbC/Z+rn8+jjHsMCIew9T/Tkg=
 			</data>
 			<key>hash2</key>
 			<data>
-			RPlTNz9CE8GC6PNZsxUJD6S+vrVlQ0iNg5q86vKLlNg=
+			CeATf6mUrb8LwQ8g+McYfSEZoTYKCeOIib8y/eu1pZc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
