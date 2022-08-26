@@ -1,12 +1,15 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
 // swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Evam_iOS_Common_Kit
+import CoreLocation
 @_exported import Evam_iOS_Common_Kit
 import Foundation
 import Swift
 import SystemConfiguration
 import UIKit
 import UserNotifications
+import UserNotificationsUI
+import _Concurrency
 public protocol PreferencesManagerProtocol {
   var mSharedPreferences: Foundation.UserDefaults { get set }
 }
@@ -19,8 +22,8 @@ public enum InitializeStatusType : Swift.String {
   case INITIALIZED
   case NOT_INITIALIZED
   case INITIALIZE_FAILED
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -31,10 +34,9 @@ public enum EvamLogType : Swift.String {
   case PAGE_OUT
   case APP_BACKGROUND
   case APP_FOREGROUND
-  case APP_CRASH
   case ACTOR_CHANGE
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -44,14 +46,15 @@ public enum EvamEventType : Swift.String {
   case PAGE_OUT
   case APP_BACKGROUND
   case APP_FOREGROUND
-  case APP_CRASH
   case ACTOR_CHANGE
   case PUSH_NOTIFICATION_RECEIVED
   case PUSH_NOTIFICATION_CLICKED
   case PUSH_NOTIFICATION_DENIED
   case PUSH_NOTIFICATION_DISMISSED
-  public typealias RawValue = Swift.String
+  case INSTALL
+  case APPLICATION_ERROR
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -63,8 +66,8 @@ public enum EvamNotificationPermissionStatusType : Swift.String {
   case PROVISIONAL
   case EPHEMERAL
   case UNKNOWN
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -73,8 +76,8 @@ public enum EvamNetworkCapability : Swift.String {
   case WIFI
   case CELLULAR
   case NONE
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -82,8 +85,8 @@ public enum EvamNetworkCapability : Swift.String {
 public enum SendEventStatus : Swift.String {
   case ENABLED
   case DISABLED
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -91,8 +94,8 @@ public enum SendEventStatus : Swift.String {
 public enum SendLifeCycleEventStatus : Swift.String {
   case ENABLED
   case DISABLED
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -100,8 +103,8 @@ public enum SendLifeCycleEventStatus : Swift.String {
 public enum EvamNetworkStatus : Swift.String {
   case ONLINE
   case OFFLINE
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -124,31 +127,31 @@ public enum EvamPopupStyle {
     get
   }
   public static func == (a: Evam_iOS_Common_Kit.EvamPopupStyle, b: Evam_iOS_Common_Kit.EvamPopupStyle) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public enum EvamAnimationStyle {
   case noAnimation, topToBottom, bottomToTop, leftToRight, rightToLeft
   public static func == (a: Evam_iOS_Common_Kit.EvamAnimationStyle, b: Evam_iOS_Common_Kit.EvamAnimationStyle) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public enum EvamButtonActionType {
   case none, selector, closure
   public static func == (a: Evam_iOS_Common_Kit.EvamButtonActionType, b: Evam_iOS_Common_Kit.EvamButtonActionType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public enum EvamActionType : Swift.String {
   case deep, url
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -156,18 +159,18 @@ public enum EvamActionType : Swift.String {
 public enum EvamAlertButtonLayout {
   case horizontal, vertical
   public static func == (a: Evam_iOS_Common_Kit.EvamAlertButtonLayout, b: Evam_iOS_Common_Kit.EvamAlertButtonLayout) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
-@objc @_inheritsConvenienceInitializers open class EvamButton : UIKit.UIButton {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class EvamButton : UIKit.UIButton {
   public struct ShowTimeoutConfiguration {
     public init(prefix: Swift.String = "", suffix: Swift.String = "")
   }
   @objc dynamic public init()
-  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc deinit
 }
 open class EvamPopupResponder {
@@ -179,7 +182,7 @@ open class EvamPopupResponder {
   @objc deinit
 }
 public typealias DismissBlock = () -> Swift.Void
-@objc @_inheritsConvenienceInitializers public class EvamPopup : UIKit.UIViewController {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class EvamPopup : UIKit.UIViewController {
   public struct EvamAppearance {
     public struct Margin {
       public var titleTop: CoreGraphics.CGFloat
@@ -196,46 +199,46 @@ public typealias DismissBlock = () -> Swift.Void
     public typealias ActionType = () -> Swift.Void
     public init(timeoutValue: Foundation.TimeInterval, timeoutAction: @escaping Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration.ActionType)
   }
-  open var iconTintColor: UIKit.UIColor?
-  open var customSubview: UIKit.UIView?
-  public init(appearance: Evam_iOS_Common_Kit.EvamPopup.EvamAppearance)
-  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) open var iconTintColor: UIKit.UIColor?
+  @_Concurrency.MainActor(unsafe) open var customSubview: UIKit.UIView?
+  @_Concurrency.MainActor(unsafe) public init(appearance: Evam_iOS_Common_Kit.EvamPopup.EvamAppearance)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc required dynamic public init()
-  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @objc override dynamic open func viewWillLayoutSubviews()
-  @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
-  @objc override dynamic open func viewDidDisappear(_ animated: Swift.Bool)
-  @objc override dynamic open func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
-  open func addTextField(_ title: Swift.String? = nil) -> UIKit.UITextField
-  open func addTextView() -> UIKit.UITextView
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillLayoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor(unsafe) open func addTextField(_ title: Swift.String? = nil) -> UIKit.UITextField
+  @_Concurrency.MainActor(unsafe) open func addTextView() -> UIKit.UITextView
   @discardableResult
-  open func addButton(_ title: Swift.String, backgroundColor: UIKit.UIColor? = nil, textColor: UIKit.UIColor? = nil, showTimeout: Evam_iOS_Common_Kit.EvamButton.ShowTimeoutConfiguration? = nil, action: @escaping () -> Swift.Void) -> Evam_iOS_Common_Kit.EvamButton
+  @_Concurrency.MainActor(unsafe) open func addButton(_ title: Swift.String, backgroundColor: UIKit.UIColor? = nil, textColor: UIKit.UIColor? = nil, showTimeout: Evam_iOS_Common_Kit.EvamButton.ShowTimeoutConfiguration? = nil, action: @escaping () -> Swift.Void) -> Evam_iOS_Common_Kit.EvamButton
   @discardableResult
-  open func addButton(_ title: Swift.String, backgroundColor: UIKit.UIColor? = nil, textColor: UIKit.UIColor? = nil, showTimeout: Evam_iOS_Common_Kit.EvamButton.ShowTimeoutConfiguration? = nil, target: Swift.AnyObject, selector: ObjectiveC.Selector) -> Evam_iOS_Common_Kit.EvamButton
+  @_Concurrency.MainActor(unsafe) open func addButton(_ title: Swift.String, backgroundColor: UIKit.UIColor? = nil, textColor: UIKit.UIColor? = nil, showTimeout: Evam_iOS_Common_Kit.EvamButton.ShowTimeoutConfiguration? = nil, target: Swift.AnyObject, selector: ObjectiveC.Selector) -> Evam_iOS_Common_Kit.EvamButton
   @discardableResult
-  open func showCustom(_ title: Swift.String, subTitle: Swift.String? = nil, color: UIKit.UIColor, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  @_Concurrency.MainActor(unsafe) open func showCustom(_ title: Swift.String, subTitle: Swift.String? = nil, color: UIKit.UIColor, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
   @discardableResult
-  open func showSuccess(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt = EvamPopupStyle.success.defaultColorInt, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  @_Concurrency.MainActor(unsafe) open func showSuccess(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt = EvamPopupStyle.success.defaultColorInt, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
   @discardableResult
-  open func showError(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt = EvamPopupStyle.error.defaultColorInt, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  @_Concurrency.MainActor(unsafe) open func showError(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt = EvamPopupStyle.error.defaultColorInt, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
   @discardableResult
-  open func showNotice(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt = EvamPopupStyle.notice.defaultColorInt, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  @_Concurrency.MainActor(unsafe) open func showNotice(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt = EvamPopupStyle.notice.defaultColorInt, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
   @discardableResult
-  open func showWarning(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt = EvamPopupStyle.warning.defaultColorInt, colorTextButton: Swift.UInt = 0x000000, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  @_Concurrency.MainActor(unsafe) open func showWarning(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt = EvamPopupStyle.warning.defaultColorInt, colorTextButton: Swift.UInt = 0x000000, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
   @discardableResult
-  open func showInfo(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt = EvamPopupStyle.info.defaultColorInt, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  @_Concurrency.MainActor(unsafe) open func showInfo(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt = EvamPopupStyle.info.defaultColorInt, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
   @discardableResult
-  open func showWait(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt? = EvamPopupStyle.wait.defaultColorInt, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  @_Concurrency.MainActor(unsafe) open func showWait(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt? = EvamPopupStyle.wait.defaultColorInt, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
   @discardableResult
-  open func showEdit(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt = EvamPopupStyle.edit.defaultColorInt, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  @_Concurrency.MainActor(unsafe) open func showEdit(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt = EvamPopupStyle.edit.defaultColorInt, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
   @discardableResult
-  open func showTitle(_ title: Swift.String, subTitle: Swift.String? = nil, style: Evam_iOS_Common_Kit.EvamPopupStyle, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt? = 0x000000, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  @_Concurrency.MainActor(unsafe) open func showTitle(_ title: Swift.String, subTitle: Swift.String? = nil, style: Evam_iOS_Common_Kit.EvamPopupStyle, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt? = 0x000000, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
   @discardableResult
-  open func showTitle(_ title: Swift.String, subTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration?, completeText: Swift.String?, style: Evam_iOS_Common_Kit.EvamPopupStyle, colorStyle: Swift.UInt? = 0x000000, colorTextButton: Swift.UInt? = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
-  @objc open func updateShowTimeout()
-  @objc open func hideView()
-  @objc open func hideViewTimeout()
-  open func isShowing() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) open func showTitle(_ title: Swift.String, subTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration?, completeText: Swift.String?, style: Evam_iOS_Common_Kit.EvamPopupStyle, colorStyle: Swift.UInt? = 0x000000, colorTextButton: Swift.UInt? = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  @objc @_Concurrency.MainActor(unsafe) open func updateShowTimeout()
+  @objc @_Concurrency.MainActor(unsafe) open func hideView()
+  @objc @_Concurrency.MainActor(unsafe) open func hideViewTimeout()
+  @_Concurrency.MainActor(unsafe) open func isShowing() -> Swift.Bool
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class NotificationAppCommunicationItem : Swift.Codable {
@@ -251,17 +254,19 @@ public typealias DismissBlock = () -> Swift.Void
   public var applicationName: Swift.String?
   public var scenario: Swift.String?
   public var action: Evam_iOS_Common_Kit.AppCommunicationItemAction?
+  public var images: [Evam_iOS_Common_Kit.AppCommunicationItemImage]?
+  public var sliderSupport: Swift.Bool?
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunication : Swift.Codable {
   public var model: [Evam_iOS_Common_Kit.AppCommunicationItem]?
   public var configuration: Evam_iOS_Common_Kit.Configuration?
   public var blockedEvents: [Evam_iOS_Common_Kit.BlockedEvents]?
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItem : Swift.Codable {
   public var type: Swift.String?
@@ -281,38 +286,55 @@ public typealias DismissBlock = () -> Swift.Void
   public var applicationName: Swift.String?
   public var scenario: Swift.String?
   public var bgColor: Swift.String?
+  public var question: Evam_iOS_Common_Kit.AppCommunicationItemQuestion?
+  public var emojiList: [Evam_iOS_Common_Kit.AppCommunicationItemButton]?
+  public var images: [Evam_iOS_Common_Kit.AppCommunicationItemImage]?
+  public var sliderSupport: Swift.Bool?
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 public class Configuration : Swift.Codable {
   public var id: Swift.String?
   public var stopAllEvents: Swift.Bool
   public var offlineQueueSize: Swift.Int?
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class BlockedEvents : Swift.Codable {
   public var name: Swift.String?
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers public class AppCommunicationItemQuestion : Swift.Codable {
+  public var text: Swift.String?
+  public var color: Swift.String?
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItemHeader : Swift.Codable {
   public var text: Swift.String?
   public var color: Swift.String?
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers public class AppCommunicationItemImage : Swift.Codable {
+  public var url: Swift.String?
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItemText : Swift.Codable {
   public var text: Swift.String?
   public var color: Swift.String?
   public var bgColor: Swift.String?
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItemAction : Swift.Codable {
   public var link: Swift.String?
@@ -320,8 +342,8 @@ public class Configuration : Swift.Codable {
   public func isDeepType() -> Swift.Bool
   public func isUrlType() -> Swift.Bool
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItemButton : Swift.Codable {
   public var id: Swift.String?
@@ -329,12 +351,15 @@ public class Configuration : Swift.Codable {
   public var color: Swift.String?
   public var textColor: Swift.String?
   public var action: Evam_iOS_Common_Kit.AppCommunicationItemAction?
+  public var type: Swift.String?
+  public var show: Swift.Bool?
+  public var imageUrl: Swift.String?
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 public class EvamInitConfig {
-  public init(bundle: Foundation.Bundle, apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false, sendApplicationLifeCycleEventEnabled: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, isWifiStatusRequired: Swift.Bool = true, isDiskCapacityRequired: Swift.Bool = true, isBatteryStatusRequired: Swift.Bool = true)
+  public init(bundle: Foundation.Bundle, apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false, sendApplicationLifeCycleEventEnabled: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, isWifiStatusRequired: Swift.Bool = true, isDiskCapacityRequired: Swift.Bool = true, isBatteryStatusRequired: Swift.Bool = true, isLocationRequired: Swift.Bool = true)
   @objc deinit
 }
 public class Evam {
@@ -348,12 +373,20 @@ public class Evam {
   public static func initialize(apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, localOrigin: Swift.String, actorId: Swift.String? = nil, applicationName: Swift.String = "", offlineCachingDisabled: Swift.Bool = false)
   public static func updateActorId(newActorId: Swift.String)
   public static func setPushToken(token: Swift.String)
+  public static func setApnsToken(deviceToken: Foundation.Data)
   public static func didFinishLaunchingWithOptions(application: UIKit.UIApplication)
   public static func applicationDidBecomeActive(application: UIKit.UIApplication)
   public static func applicationWillResignActive(application: UIKit.UIApplication)
   public static func applicationDidReceiveRemoteNotification(userInfo: [Swift.AnyHashable : Any])
   public static func getInitializeStatusType() -> Evam_iOS_Common_Kit.InitializeStatusType
   public static func isInitialized() -> Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class EvamSliderPushHelper {
+  public static func getImageList(notification: UserNotifications.UNNotification) -> [Swift.String]
+  public static func getSize(_ collectionView: UIKit.UICollectionView, sizeForItemAt indexPath: Foundation.IndexPath, listCount: Swift.Int) -> CoreGraphics.CGSize
+  public static func scrollNextItem(collectionView: UIKit.UICollectionView!, currentIndex: Swift.Int, listCount: Swift.Int) -> Swift.Int
+  public static func scrollPreviousItem(collectionView: UIKit.UICollectionView!, currentIndex: Swift.Int, listCount: Swift.Int) -> Swift.Int
   @objc deinit
 }
 public enum ReachabilityError : Swift.Error {
@@ -365,7 +398,7 @@ public enum ReachabilityError : Swift.Error {
 }
 @available(*, unavailable, renamed: "Notification.Name.reachabilityChanged")
 public let ReachabilityChangedNotification: Foundation.NSNotification.Name
-extension NSNotification.Name {
+extension Foundation.NSNotification.Name {
   public static let reachabilityChanged: Foundation.Notification.Name
 }
 public class Reachability {
@@ -379,10 +412,10 @@ public class Reachability {
     @available(*, deprecated, renamed: "unavailable")
     public static let none: Evam_iOS_Common_Kit.Reachability.Connection
     public static func == (a: Evam_iOS_Common_Kit.Reachability.Connection, b: Evam_iOS_Common_Kit.Reachability.Connection) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
-    public func hash(into hasher: inout Swift.Hasher)
   }
   public var whenReachable: Evam_iOS_Common_Kit.Reachability.NetworkReachable?
   public var whenUnreachable: Evam_iOS_Common_Kit.Reachability.NetworkUnreachable?
@@ -406,7 +439,7 @@ public class Reachability {
   convenience public init(queueQoS: Dispatch.DispatchQoS = .default, targetQueue: Dispatch.DispatchQueue? = nil, notificationQueue: Dispatch.DispatchQueue? = .main) throws
   @objc deinit
 }
-extension Reachability {
+extension Evam_iOS_Common_Kit.Reachability {
   public func startNotifier() throws
   public func stopNotifier()
   @available(*, deprecated, message: "Please use `connection != .none`")
@@ -427,16 +460,17 @@ extension Reachability {
 }
 public class EvamEventManager {
   public init()
+  public static func sendInstallEvent()
   public static func sendPageInEvent(controller: UIKit.UIViewController?, pageName: Swift.String? = nil)
   public static func sendPageOutEvent(controller: UIKit.UIViewController?, pageName: Swift.String? = nil)
   public static func sendAppBackgroundEvent()
   public static func sendAppForegroundEvent()
   public static func sendChangeActorEvent(controller: UIKit.UIViewController?, oldActorId: Swift.String, newActorId: Swift.String)
-  public static func sendAppCrashEvent(controller: UIKit.UIViewController)
+  public static func sendApplicationErrorEvent(error: Foundation.NSError)
   public static func sendPushNotificationDismissedEvent(userInfo: [Swift.AnyHashable : Any])
   public static func sendPushNotificationBodyClickedEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?)
   public static func sendPushNotificationButtonClickedEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?, onBodyClick: Swift.Bool?)
-  public static func sendNotificationPermissionStatusEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, notificationPermissionStatusType: Evam_iOS_Common_Kit.EvamNotificationPermissionStatusType)
+  public static func sendNotificationPermissionStatusEvent(userInfo: [Swift.AnyHashable : Any])
   public static func sendNotificationEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?, onButtonClick: Swift.Bool = false, onBodyClick: Swift.Bool = false, onDismissClick: Swift.Bool = false)
   public static func sendEvent(controller: UIKit.UIViewController?, eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Swift.String]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
   public static func sendEvent(event: Evam_iOS_Common_Kit.AppCommunicationItem, body: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, choice: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, button: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, fromNotification: Swift.Bool = false, userClick: Swift.Bool = false)
@@ -444,14 +478,14 @@ public class EvamEventManager {
   @objc deinit
 }
 public func UIColorFromRGB(_ rgbValue: Swift.UInt) -> UIKit.UIColor
-@objc @_inheritsConvenienceInitializers open class EvamViewController : UIKit.UIViewController {
-  @objc override dynamic open func viewDidLoad()
-  @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
-  @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
-  @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class EvamViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
-  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @objc required dynamic public init?(coder: Foundation.NSCoder)
 }
 @_hasMissingDesignatedInitializers public class EvamConfig {
   final public let ENVIRONMENT_SANDBOX: Swift.String
@@ -476,8 +510,8 @@ public protocol ServiceClientProtocol {
 public enum HTTPMethod : Swift.String {
   case post
   case get
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -507,6 +541,7 @@ public class JSONRequest<T> where T : Swift.Decodable, T : Swift.Encodable {
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class NotificationManager {
+  public static var collectionView: UIKit.UICollectionView!
   public class func didReceive(_ request: UserNotifications.UNNotificationRequest, withContentHandler contentHandler: @escaping (UserNotifications.UNNotificationContent) -> Swift.Void)
   public class func handleNotification(userInfo: [Swift.AnyHashable : Any], response: UserNotifications.UNNotificationResponse, actionCallback: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemAction?) -> ())
   public static func refreshNotificationPermissionStatusType()
