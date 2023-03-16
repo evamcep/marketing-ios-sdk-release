@@ -210,6 +210,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+
 @class NSCoder;
 
 SWIFT_CLASS("_TtC19Evam_iOS_Common_Kit10EvamButton")
@@ -250,6 +251,9 @@ SWIFT_CLASS("_TtC19Evam_iOS_Common_Kit18EvamViewController")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
+
+
+
 
 
 
@@ -470,6 +474,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+
 @class NSCoder;
 
 SWIFT_CLASS("_TtC19Evam_iOS_Common_Kit10EvamButton")
@@ -510,6 +515,9 @@ SWIFT_CLASS("_TtC19Evam_iOS_Common_Kit18EvamViewController")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
+
+
+
 
 
 

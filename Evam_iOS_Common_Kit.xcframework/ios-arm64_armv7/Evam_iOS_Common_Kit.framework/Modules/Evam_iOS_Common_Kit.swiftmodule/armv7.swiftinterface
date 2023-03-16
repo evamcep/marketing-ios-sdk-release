@@ -53,6 +53,11 @@ public enum EvamEventType : Swift.String {
   case PUSH_NOTIFICATION_DISMISSED
   case INSTALL
   case APPLICATION_ERROR
+  case INAPPOPENED
+  case TOKENCHANGE
+  case INAPPMESSAGERESPONSE
+  case INITIALIZE
+  case LOGIN
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -109,17 +114,23 @@ public enum EvamNetworkStatus : Swift.String {
     get
   }
 }
-@available(*, deprecated, renamed: "EvamEventManager")
-public class EvamLogManager {
-  public init()
-  @available(*, deprecated, renamed: "sendNotificationEvent")
-  public static func logNotificationEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?, userClick: Swift.Bool = false, onSelfClick: Swift.Bool = false)
-  @available(*, deprecated, renamed: "sendEvent")
-  public static func logEvent(event: Evam_iOS_Common_Kit.AppCommunicationItem, choice: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, button: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, fromNotification: Swift.Bool = false, userClick: Swift.Bool = false)
-  @available(*, deprecated, renamed: "sendEvent")
-  public static func logEvent(controller: UIKit.UIViewController?, eventName: Swift.String, initialParameters: [Swift.String : Swift.String]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
-  public static func handlePopupAction(controller: UIKit.UIViewController, action: Evam_iOS_Common_Kit.AppCommunicationItem?, fromNotification: Swift.Bool, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
-  @objc deinit
+public enum PreferencesKey : Swift.String {
+  case apnsToken
+  case pushToken
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum TokenProviderType : Swift.String {
+  case apns
+  case firebase
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
 }
 public enum EvamPopupStyle {
   case success, error, notice, warning, info, edit, wait, question
@@ -354,12 +365,32 @@ public class Configuration : Swift.Codable {
   public var type: Swift.String?
   public var show: Swift.Bool?
   public var imageUrl: Swift.String?
+  public var freeTextQuestionCheckBox: Swift.Bool?
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
+public enum SelectedOperator : Swift.String, Swift.Codable {
+  case greaterThan
+  case greaterThanEqualTo
+  case lessThan
+  case lessThanEqualTo
+  case isEqualTo
+  case notEqualTo
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ScoreFieldModel {
+}
+public struct OpenEndedFieldModel {
+}
+public struct ChoiseFieldModel {
+}
 public class EvamInitConfig {
-  public init(bundle: Foundation.Bundle, apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false, sendApplicationLifeCycleEventEnabled: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, isWifiStatusRequired: Swift.Bool = true, isDiskCapacityRequired: Swift.Bool = true, isBatteryStatusRequired: Swift.Bool = true, isLocationRequired: Swift.Bool = true)
+  public init(bundle: Foundation.Bundle, apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false, sendApplicationLifeCycleEventEnabled: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, isWifiStatusRequired: Swift.Bool = true, isDiskCapacityRequired: Swift.Bool = true, isBatteryStatusRequired: Swift.Bool = true, isLocationRequired: Swift.Bool = true, forceInitialize: Swift.Bool = false)
   @objc deinit
 }
 public class Evam {
@@ -458,24 +489,29 @@ extension Evam_iOS_Common_Kit.Reachability {
     get
   }
 }
-public class EvamEventManager {
-  public init()
-  public static func sendInstallEvent()
+@_hasMissingDesignatedInitializers public class EvamEventManager {
+  public static func handlePopupAction(controller: UIKit.UIViewController, pageName: Swift.String?, action: Evam_iOS_Common_Kit.AppCommunicationItem?, fromNotification: Swift.Bool, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
+  @objc deinit
+}
+extension Evam_iOS_Common_Kit.EvamEventManager {
+  public static func sendInstallEvent(_ actorId: Swift.String?)
   public static func sendPageInEvent(controller: UIKit.UIViewController?, pageName: Swift.String? = nil)
   public static func sendPageOutEvent(controller: UIKit.UIViewController?, pageName: Swift.String? = nil)
   public static func sendAppBackgroundEvent()
   public static func sendAppForegroundEvent()
-  public static func sendChangeActorEvent(controller: UIKit.UIViewController?, oldActorId: Swift.String, newActorId: Swift.String)
+  public static func sendChangeActorEvent(oldActorId: Swift.String, newActorId: Swift.String)
   public static func sendApplicationErrorEvent(error: Foundation.NSError)
+  public static func sendTokenChangeEvent(tokenProvider: Evam_iOS_Common_Kit.TokenProviderType)
+  public static func sendOpenedEvent(event: Evam_iOS_Common_Kit.AppCommunicationItem, controller: UIKit.UIViewController?, pageName: Swift.String? = nil)
   public static func sendPushNotificationDismissedEvent(userInfo: [Swift.AnyHashable : Any])
-  public static func sendPushNotificationBodyClickedEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?)
-  public static func sendPushNotificationButtonClickedEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?, onBodyClick: Swift.Bool?)
   public static func sendNotificationPermissionStatusEvent(userInfo: [Swift.AnyHashable : Any])
-  public static func sendNotificationEvent(pushToken: Swift.String, applicationName: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?, onButtonClick: Swift.Bool = false, onBodyClick: Swift.Bool = false, onDismissClick: Swift.Bool = false)
+  public static func sendPushNotificationNotificationClickedEvent(pushToken: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?)
+  public static func sendPushNotificationReceivedEvent(pushToken: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String)
   public static func sendEvent(controller: UIKit.UIViewController?, eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Swift.String]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
-  public static func sendEvent(event: Evam_iOS_Common_Kit.AppCommunicationItem, body: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, choice: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, button: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, fromNotification: Swift.Bool = false, userClick: Swift.Bool = false)
-  public static func handlePopupAction(controller: UIKit.UIViewController, action: Evam_iOS_Common_Kit.AppCommunicationItem?, fromNotification: Swift.Bool, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
-  @objc deinit
+  public static func sendLoginEvent(controller: UIKit.UIViewController?, pageName: Swift.String? = nil, initialParameters: [Swift.String : Swift.String]? = nil)
+  public static func sendEvent(eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Swift.String]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItem) -> ())
+  public static func sendInAppMessageEvent(event: Evam_iOS_Common_Kit.AppCommunicationItem, body: Evam_iOS_Common_Kit.AppCommunicationItemAction? = nil, choice: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, button: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, scoreField: Evam_iOS_Common_Kit.ScoreFieldModel? = nil, openEndedField: Evam_iOS_Common_Kit.OpenEndedFieldModel? = nil, choiseField: Evam_iOS_Common_Kit.ChoiseFieldModel? = nil, controller: UIKit.UIViewController?, pageName: Swift.String? = nil)
+  public static func sendInitializeEvent()
 }
 public func UIColorFromRGB(_ rgbValue: Swift.UInt) -> UIKit.UIColor
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class EvamViewController : UIKit.UIViewController {
@@ -521,10 +557,10 @@ public class JSONRequest<T> where T : Swift.Decodable, T : Swift.Encodable {
   public var completionHandler: Evam_iOS_Common_Kit.JSONRequest<T>.JSONCompletionHandler?
   public var httpMethod: Swift.String
   public var serviceUrl: Foundation.URL
-  public var headers: [Swift.String : Swift.String]?
-  public var parameters: [Swift.String : Swift.String]?
+  public var headers: [Swift.String : Any]?
+  public var parameters: [Swift.String : Any]?
   public var isCached: Swift.Bool?
-  public init(httpMethod: Evam_iOS_Common_Kit.HTTPMethod, serviceUrl: Foundation.URL, headers: [Swift.String : Swift.String]?, parameters: [Swift.String : Swift.String], requestId: Swift.String? = "", completionHandler: Evam_iOS_Common_Kit.JSONRequest<T>.JSONCompletionHandler?, isCached: Swift.Bool = false)
+  public init(httpMethod: Evam_iOS_Common_Kit.HTTPMethod, serviceUrl: Foundation.URL, headers: [Swift.String : Any]?, parameters: [Swift.String : Any], requestId: Swift.String? = "", completionHandler: Evam_iOS_Common_Kit.JSONRequest<T>.JSONCompletionHandler?, isCached: Swift.Bool = false)
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class ServiceClient : Evam_iOS_Common_Kit.ServiceClientProtocol {
@@ -574,6 +610,12 @@ extension Evam_iOS_Common_Kit.SendLifeCycleEventStatus : Swift.RawRepresentable 
 extension Evam_iOS_Common_Kit.EvamNetworkStatus : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.EvamNetworkStatus : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.EvamNetworkStatus : Swift.RawRepresentable {}
+extension Evam_iOS_Common_Kit.PreferencesKey : Swift.Equatable {}
+extension Evam_iOS_Common_Kit.PreferencesKey : Swift.Hashable {}
+extension Evam_iOS_Common_Kit.PreferencesKey : Swift.RawRepresentable {}
+extension Evam_iOS_Common_Kit.TokenProviderType : Swift.Equatable {}
+extension Evam_iOS_Common_Kit.TokenProviderType : Swift.Hashable {}
+extension Evam_iOS_Common_Kit.TokenProviderType : Swift.RawRepresentable {}
 extension Evam_iOS_Common_Kit.EvamPopupStyle : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.EvamPopupStyle : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.EvamAnimationStyle : Swift.Equatable {}
@@ -585,6 +627,9 @@ extension Evam_iOS_Common_Kit.EvamActionType : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.EvamActionType : Swift.RawRepresentable {}
 extension Evam_iOS_Common_Kit.EvamAlertButtonLayout : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.EvamAlertButtonLayout : Swift.Hashable {}
+extension Evam_iOS_Common_Kit.SelectedOperator : Swift.Equatable {}
+extension Evam_iOS_Common_Kit.SelectedOperator : Swift.Hashable {}
+extension Evam_iOS_Common_Kit.SelectedOperator : Swift.RawRepresentable {}
 extension Evam_iOS_Common_Kit.Reachability.Connection : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.Reachability.Connection : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.HTTPMethod : Swift.Equatable {}
