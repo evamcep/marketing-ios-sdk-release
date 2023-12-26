@@ -6,6 +6,6 @@ framework module Evam_iOS_Common_Kit {
 }
 
 module Evam_iOS_Common_Kit.Swift {
-    header "Evam_iOS_Common_Kit-Swift.h"
-    requires objc
+  header "Evam_iOS_Common_Kit-Swift.h"
+  requires objc
 }

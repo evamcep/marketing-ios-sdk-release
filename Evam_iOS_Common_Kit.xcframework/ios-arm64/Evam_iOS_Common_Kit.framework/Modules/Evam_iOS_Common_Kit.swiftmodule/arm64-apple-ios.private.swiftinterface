@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
-// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Evam_iOS_Common_Kit
+// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Evam_iOS_Common_Kit
+// swift-module-flags-ignorable: -enable-bare-slash-regex
 import CoreLocation
 @_exported import Evam_iOS_Common_Kit
 import Foundation
@@ -10,6 +11,7 @@ import UIKit
 import UserNotifications
 import UserNotificationsUI
 import _Concurrency
+import _StringProcessing
 public protocol PreferencesManagerProtocol {
   var mSharedPreferences: Foundation.UserDefaults { get set }
 }
@@ -180,9 +182,9 @@ public enum EvamAlertButtonLayout {
   public struct ShowTimeoutConfiguration {
     public init(prefix: Swift.String = "", suffix: Swift.String = "")
   }
-  @objc dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc dynamic public init()
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @objc deinit
 }
 open class EvamPopupResponder {
@@ -197,15 +199,15 @@ public typealias DismissBlock = () -> Swift.Void
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class EvamPopup : UIKit.UIViewController {
   public struct EvamAppearance {
     public struct Margin {
-      public var titleTop: CoreGraphics.CGFloat
-      public var textViewBottom: CoreGraphics.CGFloat
-      public var buttonSpacing: CoreGraphics.CGFloat
-      public var textFieldSpacing: CoreGraphics.CGFloat
-      public var bottom: CoreGraphics.CGFloat
-      public var horizontal: CoreGraphics.CGFloat
-      public init(titleTop: CoreGraphics.CGFloat = 30, textViewBottom: CoreGraphics.CGFloat = 12, buttonSpacing: CoreGraphics.CGFloat = 10, textFieldSpacing: CoreGraphics.CGFloat = 15, bottom: CoreGraphics.CGFloat = 14, horizontal: CoreGraphics.CGFloat = 12)
+      public var titleTop: CoreFoundation.CGFloat
+      public var textViewBottom: CoreFoundation.CGFloat
+      public var buttonSpacing: CoreFoundation.CGFloat
+      public var textFieldSpacing: CoreFoundation.CGFloat
+      public var bottom: CoreFoundation.CGFloat
+      public var horizontal: CoreFoundation.CGFloat
+      public init(titleTop: CoreFoundation.CGFloat = 30, textViewBottom: CoreFoundation.CGFloat = 12, buttonSpacing: CoreFoundation.CGFloat = 10, textFieldSpacing: CoreFoundation.CGFloat = 15, bottom: CoreFoundation.CGFloat = 14, horizontal: CoreFoundation.CGFloat = 12)
     }
-    public init(kDefaultShadowOpacity: CoreGraphics.CGFloat = 0.7, kCircleTopPosition: CoreGraphics.CGFloat = 0.0, kCircleBackgroundTopPosition: CoreGraphics.CGFloat = 6.0, kCircleHeight: CoreGraphics.CGFloat = 56.0, kCircleIconHeight: CoreGraphics.CGFloat = 20.0, kTitleHeight: CoreGraphics.CGFloat = 25.0, kWindowWidth: CoreGraphics.CGFloat = 240.0, kWindowHeight: CoreGraphics.CGFloat = 178.0, kTextHeight: CoreGraphics.CGFloat = 90.0, kTextFieldHeight: CoreGraphics.CGFloat = 30.0, kTextViewdHeight: CoreGraphics.CGFloat = 80.0, kButtonHeight: CoreGraphics.CGFloat = 35.0, kTitleFont: UIKit.UIFont = UIFont.systemFont(ofSize: 20), kTitleMinimumScaleFactor: CoreGraphics.CGFloat = 1.0, kTextFont: UIKit.UIFont = UIFont.systemFont(ofSize: 14), kButtonFont: UIKit.UIFont = UIFont.boldSystemFont(ofSize: 14), showCloseButton: Swift.Bool = true, showCircularIcon: Swift.Bool = true, shouldAutoDismiss: Swift.Bool = true, contentViewCornerRadius: CoreGraphics.CGFloat = 5.0, fieldCornerRadius: CoreGraphics.CGFloat = 3.0, buttonCornerRadius: CoreGraphics.CGFloat = 3.0, hideWhenBackgroundViewIsTapped: Swift.Bool = false, circleBackgroundColor: UIKit.UIColor = UIColor.white, contentViewColor: UIKit.UIColor = UIColorFromRGB(0xFFFFFF), contentViewBorderColor: UIKit.UIColor = UIColorFromRGB(0xCCCCCC), titleColor: UIKit.UIColor = UIColorFromRGB(0x4D4D4D), subTitleColor: UIKit.UIColor = UIColorFromRGB(0x4D4D4D), margin: Evam_iOS_Common_Kit.EvamPopup.EvamAppearance.Margin = Margin(), dynamicAnimatorActive: Swift.Bool = false, disableTapGesture: Swift.Bool = false, buttonsLayout: Evam_iOS_Common_Kit.EvamAlertButtonLayout = .vertical, activityIndicatorStyle: UIKit.UIActivityIndicatorView.Style = .white, textViewAlignment: UIKit.NSTextAlignment = .center)
+    public init(kDefaultShadowOpacity: CoreFoundation.CGFloat = 0.7, kCircleTopPosition: CoreFoundation.CGFloat = 0.0, kCircleBackgroundTopPosition: CoreFoundation.CGFloat = 6.0, kCircleHeight: CoreFoundation.CGFloat = 56.0, kCircleIconHeight: CoreFoundation.CGFloat = 20.0, kTitleHeight: CoreFoundation.CGFloat = 25.0, kWindowWidth: CoreFoundation.CGFloat = 240.0, kWindowHeight: CoreFoundation.CGFloat = 178.0, kTextHeight: CoreFoundation.CGFloat = 90.0, kTextFieldHeight: CoreFoundation.CGFloat = 30.0, kTextViewdHeight: CoreFoundation.CGFloat = 80.0, kButtonHeight: CoreFoundation.CGFloat = 35.0, kTitleFont: UIKit.UIFont = UIFont.systemFont(ofSize: 20), kTitleMinimumScaleFactor: CoreFoundation.CGFloat = 1.0, kTextFont: UIKit.UIFont = UIFont.systemFont(ofSize: 14), kButtonFont: UIKit.UIFont = UIFont.boldSystemFont(ofSize: 14), showCloseButton: Swift.Bool = true, showCircularIcon: Swift.Bool = true, shouldAutoDismiss: Swift.Bool = true, contentViewCornerRadius: CoreFoundation.CGFloat = 5.0, fieldCornerRadius: CoreFoundation.CGFloat = 3.0, buttonCornerRadius: CoreFoundation.CGFloat = 3.0, hideWhenBackgroundViewIsTapped: Swift.Bool = false, circleBackgroundColor: UIKit.UIColor = UIColor.white, contentViewColor: UIKit.UIColor = UIColorFromRGB(0xFFFFFF), contentViewBorderColor: UIKit.UIColor = UIColorFromRGB(0xCCCCCC), titleColor: UIKit.UIColor = UIColorFromRGB(0x4D4D4D), subTitleColor: UIKit.UIColor = UIColorFromRGB(0x4D4D4D), margin: Evam_iOS_Common_Kit.EvamPopup.EvamAppearance.Margin = Margin(), dynamicAnimatorActive: Swift.Bool = false, disableTapGesture: Swift.Bool = false, buttonsLayout: Evam_iOS_Common_Kit.EvamAlertButtonLayout = .vertical, activityIndicatorStyle: UIKit.UIActivityIndicatorView.Style = .white, textViewAlignment: UIKit.NSTextAlignment = .center)
   }
   public struct EvamTimeoutConfiguration {
     public typealias ActionType = () -> Swift.Void
@@ -215,7 +217,7 @@ public typealias DismissBlock = () -> Swift.Void
   @_Concurrency.MainActor(unsafe) open var customSubview: UIKit.UIView?
   @_Concurrency.MainActor(unsafe) public init(appearance: Evam_iOS_Common_Kit.EvamPopup.EvamAppearance)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @objc required dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillLayoutSubviews()
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
@@ -421,7 +423,7 @@ public protocol TokenServiceProtocol {
 }
 @_hasMissingDesignatedInitializers public class EvamSliderPushHelper {
   public static func getImageList(notification: UserNotifications.UNNotification) -> [Swift.String]
-  public static func getSize(_ collectionView: UIKit.UICollectionView, sizeForItemAt indexPath: Foundation.IndexPath, listCount: Swift.Int) -> CoreGraphics.CGSize
+  public static func getSize(_ collectionView: UIKit.UICollectionView, sizeForItemAt indexPath: Foundation.IndexPath, listCount: Swift.Int) -> CoreFoundation.CGSize
   public static func scrollNextItem(collectionView: UIKit.UICollectionView!, currentIndex: Swift.Int, listCount: Swift.Int) -> Swift.Int
   public static func scrollPreviousItem(collectionView: UIKit.UICollectionView!, currentIndex: Swift.Int, listCount: Swift.Int) -> Swift.Int
   @objc deinit
@@ -547,7 +549,7 @@ public var modelName: Swift.String {
   get
 }
 public protocol ServiceClientProtocol {
-  func getInAppCommunication(headers: [Swift.String : Swift.String]?, parameters: [Swift.String : Swift.String], completion: @escaping (Evam_iOS_Common_Kit.AppCommunication?) -> ())
+  func getInAppCommunication(headers: [Swift.String : Swift.String]?, parameters: [Swift.String : Swift.String], completion: @escaping (Evam_iOS_Common_Kit.AppCommunication?, Swift.Bool?) -> ())
 }
 public enum HTTPMethod : Swift.String {
   case post
@@ -559,7 +561,7 @@ public enum HTTPMethod : Swift.String {
   }
 }
 public class JSONRequest<T> where T : Swift.Decodable, T : Swift.Encodable {
-  public typealias JSONCompletionHandler = (T?, Foundation.NSError?) -> Swift.Void
+  public typealias JSONCompletionHandler = (T?, Foundation.NSError?, Swift.Bool?) -> Swift.Void
   public var completionHandler: Evam_iOS_Common_Kit.JSONRequest<T>.JSONCompletionHandler?
   public var httpMethod: Swift.String
   public var serviceUrl: Foundation.URL
@@ -571,7 +573,7 @@ public class JSONRequest<T> where T : Swift.Decodable, T : Swift.Encodable {
 }
 @_hasMissingDesignatedInitializers public class ServiceClient : Evam_iOS_Common_Kit.ServiceClientProtocol {
   public var lastSyncRequestIds: [Swift.String]
-  public func getInAppCommunication(headers: [Swift.String : Swift.String]? = nil, parameters: [Swift.String : Swift.String], completion: @escaping (Evam_iOS_Common_Kit.AppCommunication?) -> ())
+  public func getInAppCommunication(headers: [Swift.String : Swift.String]? = nil, parameters: [Swift.String : Swift.String], completion: @escaping (Evam_iOS_Common_Kit.AppCommunication?, Swift.Bool?) -> ())
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class EvamSession {
