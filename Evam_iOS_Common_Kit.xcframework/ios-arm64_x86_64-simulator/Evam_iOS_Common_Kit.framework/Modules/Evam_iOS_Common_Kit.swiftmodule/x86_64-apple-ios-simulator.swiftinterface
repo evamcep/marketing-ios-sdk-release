@@ -428,75 +428,8 @@ public protocol TokenServiceProtocol {
   public static func scrollPreviousItem(collectionView: UIKit.UICollectionView!, currentIndex: Swift.Int, listCount: Swift.Int) -> Swift.Int
   @objc deinit
 }
-public enum ReachabilityError : Swift.Error {
-  case failedToCreateWithAddress(Darwin.sockaddr, Swift.Int32)
-  case failedToCreateWithHostname(Swift.String, Swift.Int32)
-  case unableToSetCallback(Swift.Int32)
-  case unableToSetDispatchQueue(Swift.Int32)
-  case unableToGetFlags(Swift.Int32)
-}
 @available(*, unavailable, renamed: "Notification.Name.reachabilityChanged")
 public let ReachabilityChangedNotification: Foundation.NSNotification.Name
-extension Foundation.NSNotification.Name {
-  public static let reachabilityChanged: Foundation.Notification.Name
-}
-public class Reachability {
-  public typealias NetworkReachable = (Evam_iOS_Common_Kit.Reachability) -> ()
-  public typealias NetworkUnreachable = (Evam_iOS_Common_Kit.Reachability) -> ()
-  public enum Connection : Swift.CustomStringConvertible {
-    case unavailable, wifi, cellular
-    public var description: Swift.String {
-      get
-    }
-    @available(*, deprecated, renamed: "unavailable")
-    public static let none: Evam_iOS_Common_Kit.Reachability.Connection
-    public static func == (a: Evam_iOS_Common_Kit.Reachability.Connection, b: Evam_iOS_Common_Kit.Reachability.Connection) -> Swift.Bool
-    public func hash(into hasher: inout Swift.Hasher)
-    public var hashValue: Swift.Int {
-      get
-    }
-  }
-  public var whenReachable: Evam_iOS_Common_Kit.Reachability.NetworkReachable?
-  public var whenUnreachable: Evam_iOS_Common_Kit.Reachability.NetworkUnreachable?
-  @available(*, deprecated, renamed: "allowsCellularConnection")
-  final public let reachableOnWWAN: Swift.Bool
-  public var allowsCellularConnection: Swift.Bool
-  public var notificationCenter: Foundation.NotificationCenter
-  @available(*, deprecated, renamed: "connection.description")
-  public var currentReachabilityString: Swift.String {
-    get
-  }
-  @available(*, unavailable, renamed: "connection")
-  public var currentReachabilityStatus: Evam_iOS_Common_Kit.Reachability.Connection {
-    get
-  }
-  public var connection: Evam_iOS_Common_Kit.Reachability.Connection {
-    get
-  }
-  required public init(reachabilityRef: SystemConfiguration.SCNetworkReachability, queueQoS: Dispatch.DispatchQoS = .default, targetQueue: Dispatch.DispatchQueue? = nil, notificationQueue: Dispatch.DispatchQueue? = .main)
-  convenience public init(hostname: Swift.String, queueQoS: Dispatch.DispatchQoS = .default, targetQueue: Dispatch.DispatchQueue? = nil, notificationQueue: Dispatch.DispatchQueue? = .main) throws
-  convenience public init(queueQoS: Dispatch.DispatchQoS = .default, targetQueue: Dispatch.DispatchQueue? = nil, notificationQueue: Dispatch.DispatchQueue? = .main) throws
-  @objc deinit
-}
-extension Evam_iOS_Common_Kit.Reachability {
-  public func startNotifier() throws
-  public func stopNotifier()
-  @available(*, deprecated, message: "Please use `connection != .none`")
-  public var isReachable: Swift.Bool {
-    get
-  }
-  @available(*, deprecated, message: "Please use `connection == .cellular`")
-  public var isReachableViaWWAN: Swift.Bool {
-    get
-  }
-  @available(*, deprecated, message: "Please use `connection == .wifi`")
-  public var isReachableViaWiFi: Swift.Bool {
-    get
-  }
-  public var description: Swift.String {
-    get
-  }
-}
 @_hasMissingDesignatedInitializers public class EvamEventManager {
   public static func handlePopupAction(controller: UIKit.UIViewController, pageName: Swift.String?, action: Evam_iOS_Common_Kit.AppCommunicationItem?, fromNotification: Swift.Bool, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
   @objc deinit
@@ -515,9 +448,9 @@ extension Evam_iOS_Common_Kit.EvamEventManager {
   public static func sendNotificationPermissionStatusEvent(userInfo: [Swift.AnyHashable : Any])
   public static func sendPushNotificationNotificationClickedEvent(pushToken: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?)
   public static func sendPushNotificationReceivedEvent(pushToken: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String)
-  public static func sendEvent(controller: UIKit.UIViewController?, eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Swift.String]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
-  public static func sendLoginEvent(controller: UIKit.UIViewController?, pageName: Swift.String? = nil, initialParameters: [Swift.String : Swift.String]? = nil)
-  public static func sendEvent(eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Swift.String]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItem) -> ())
+  public static func sendEvent(controller: UIKit.UIViewController?, eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Any]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
+  public static func sendLoginEvent(controller: UIKit.UIViewController?, pageName: Swift.String? = nil, initialParameters: [Swift.String : Any]? = nil)
+  public static func sendEvent(eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Any]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItem) -> ())
   public static func sendInAppMessageEvent(event: Evam_iOS_Common_Kit.AppCommunicationItem, body: Evam_iOS_Common_Kit.AppCommunicationItemAction? = nil, choice: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, button: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, scoreField: Evam_iOS_Common_Kit.ScoreFieldModel? = nil, openEndedField: Evam_iOS_Common_Kit.OpenEndedFieldModel? = nil, choiseField: Evam_iOS_Common_Kit.ChoiseFieldModel? = nil, controller: UIKit.UIViewController?, pageName: Swift.String? = nil)
   public static func sendInitializeEvent()
 }
@@ -579,11 +512,6 @@ public class JSONRequest<T> where T : Swift.Decodable, T : Swift.Encodable {
 @_hasMissingDesignatedInitializers public class EvamSession {
   @objc deinit
 }
-@_hasMissingDesignatedInitializers public class NetworkManager {
-  public var networkStatusCallback: ((Swift.Bool) -> ())?
-  public func checkNetworkConnectivity(callBack: @escaping (Swift.Bool) -> ())
-  @objc deinit
-}
 @_hasMissingDesignatedInitializers public class NotificationManager {
   public static var collectionView: UIKit.UICollectionView!
   public class func didReceive(_ request: UserNotifications.UNNotificationRequest, withContentHandler contentHandler: @escaping (UserNotifications.UNNotificationContent) -> Swift.Void)
@@ -638,8 +566,6 @@ extension Evam_iOS_Common_Kit.EvamAlertButtonLayout : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.SelectedOperator : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.SelectedOperator : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.SelectedOperator : Swift.RawRepresentable {}
-extension Evam_iOS_Common_Kit.Reachability.Connection : Swift.Equatable {}
-extension Evam_iOS_Common_Kit.Reachability.Connection : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.HTTPMethod : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.HTTPMethod : Swift.Hashable {}
 extension Evam_iOS_Common_Kit.HTTPMethod : Swift.RawRepresentable {}
