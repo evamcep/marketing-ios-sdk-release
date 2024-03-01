@@ -23557,7 +23557,7 @@
       "kind": "StringLiteral",
       "offset": 373,
       "length": 7,
-      "value": "\"1.2.5\""
+      "value": "\"1.2.6\""
     },
     {
       "filePath": "\/Users\/evam\/dev\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
@@ -26621,35 +26621,35 @@
     {
       "filePath": "\/Users\/evam\/dev\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Reachability.swift",
       "kind": "StringLiteral",
-      "offset": 1743,
-      "length": 33,
-      "value": "\"ReachabilityChangedNotification\""
+      "offset": 1755,
+      "length": 37,
+      "value": "\"EvamReachabilityChangedNotification\""
     },
     {
       "filePath": "\/Users\/evam\/dev\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Reachability.swift",
       "kind": "StringLiteral",
-      "offset": 1873,
-      "length": 21,
-      "value": "\"reachabilityChanged\""
+      "offset": 1893,
+      "length": 25,
+      "value": "\"evamReachabilityChanged\""
     },
     {
       "filePath": "\/Users\/evam\/dev\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Reachability.swift",
       "kind": "BooleanLiteral",
-      "offset": 2718,
+      "offset": 2754,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/evam\/dev\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Reachability.swift",
       "kind": "BooleanLiteral",
-      "offset": 3853,
+      "offset": 3889,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/evam\/dev\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Reachability.swift",
       "kind": "BooleanLiteral",
-      "offset": 3925,
+      "offset": 3961,
       "length": 5,
       "value": "false"
     },

@@ -428,8 +428,8 @@ public protocol TokenServiceProtocol {
   public static func scrollPreviousItem(collectionView: UIKit.UICollectionView!, currentIndex: Swift.Int, listCount: Swift.Int) -> Swift.Int
   @objc deinit
 }
-@available(*, unavailable, renamed: "Notification.Name.reachabilityChanged")
-public let ReachabilityChangedNotification: Foundation.NSNotification.Name
+@available(*, unavailable, renamed: "Notification.Name.evamReachabilityChanged")
+public let EvamReachabilityChangedNotification: Foundation.NSNotification.Name
 @_hasMissingDesignatedInitializers public class EvamEventManager {
   public static func handlePopupAction(controller: UIKit.UIViewController, pageName: Swift.String?, action: Evam_iOS_Common_Kit.AppCommunicationItem?, fromNotification: Swift.Bool, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
   @objc deinit
