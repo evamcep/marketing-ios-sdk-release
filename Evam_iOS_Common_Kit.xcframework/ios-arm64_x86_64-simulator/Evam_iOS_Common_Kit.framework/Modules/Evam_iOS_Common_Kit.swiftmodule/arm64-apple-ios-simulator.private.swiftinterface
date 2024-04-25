@@ -402,7 +402,7 @@ public class Evam {
   public static var sendApplicationLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus
   public static var sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus
   public init()
-  public static func initialize(configuration: Evam_iOS_Common_Kit.EvamInitConfig)
+  public static func initialize(configuration: Evam_iOS_Common_Kit.EvamInitConfig, onSuccess: (() -> ())? = nil)
   @available(*, deprecated, renamed: "initialize")
   public static func initialize(apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, localOrigin: Swift.String, actorId: Swift.String? = nil, applicationName: Swift.String = "", offlineCachingDisabled: Swift.Bool = false)
   public static func updateActorId(newActorId: Swift.String)

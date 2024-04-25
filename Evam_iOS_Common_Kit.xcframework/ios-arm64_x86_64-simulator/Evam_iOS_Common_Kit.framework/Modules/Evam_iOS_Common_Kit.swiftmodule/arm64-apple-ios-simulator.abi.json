@@ -17023,7 +17023,7 @@
           {
             "kind": "Function",
             "name": "initialize",
-            "printedName": "initialize(configuration:)",
+            "printedName": "initialize(configuration:onSuccess:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -17035,11 +17035,37 @@
                 "name": "EvamInitConfig",
                 "printedName": "Evam_iOS_Common_Kit.EvamInitConfig",
                 "usr": "s:19Evam_iOS_Common_Kit0A10InitConfigC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(() -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "() -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:19Evam_iOS_Common_Kit0A0C10initialize13configurationyAA0A10InitConfigC_tFZ",
-            "mangledName": "$s19Evam_iOS_Common_Kit0A0C10initialize13configurationyAA0A10InitConfigC_tFZ",
+            "usr": "s:19Evam_iOS_Common_Kit0A0C10initialize13configuration9onSuccessyAA0A10InitConfigC_yycSgtFZ",
+            "mangledName": "$s19Evam_iOS_Common_Kit0A0C10initialize13configuration9onSuccessyAA0A10InitConfigC_yycSgtFZ",
             "moduleName": "Evam_iOS_Common_Kit",
             "static": true,
             "declAttributes": [
@@ -23557,7 +23583,7 @@
       "kind": "StringLiteral",
       "offset": 373,
       "length": 7,
-      "value": "\"1.2.6\""
+      "value": "\"1.2.7\""
     },
     {
       "filePath": "\/Users\/evam\/dev\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
@@ -25606,14 +25632,14 @@
     {
       "filePath": "\/Users\/evam\/dev\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Evam\/Evam.swift",
       "kind": "StringLiteral",
-      "offset": 5561,
+      "offset": 5617,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/evam\/dev\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Evam\/Evam.swift",
       "kind": "BooleanLiteral",
-      "offset": 5597,
+      "offset": 5653,
       "length": 5,
       "value": "false"
     },
