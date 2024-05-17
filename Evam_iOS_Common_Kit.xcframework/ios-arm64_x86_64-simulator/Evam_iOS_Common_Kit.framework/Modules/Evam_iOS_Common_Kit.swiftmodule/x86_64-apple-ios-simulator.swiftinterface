@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
 // swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Evam_iOS_Common_Kit
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import CoreLocation
@@ -12,6 +12,7 @@ import UserNotifications
 import UserNotificationsUI
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 public protocol PreferencesManagerProtocol {
   var mSharedPreferences: Foundation.UserDefaults { get set }
 }
@@ -271,16 +272,16 @@ public typealias DismissBlock = () -> Swift.Void
   public var images: [Evam_iOS_Common_Kit.AppCommunicationItemImage]?
   public var sliderSupport: Swift.Bool?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
-  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunication : Swift.Codable {
   public var model: [Evam_iOS_Common_Kit.AppCommunicationItem]?
   public var configuration: Evam_iOS_Common_Kit.Configuration?
   public var blockedEvents: [Evam_iOS_Common_Kit.BlockedEvents]?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
-  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItem : Swift.Codable {
   public var type: Swift.String?
@@ -305,50 +306,50 @@ public typealias DismissBlock = () -> Swift.Void
   public var images: [Evam_iOS_Common_Kit.AppCommunicationItemImage]?
   public var sliderSupport: Swift.Bool?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
-  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
 }
 public class Configuration : Swift.Codable {
   public var id: Swift.String?
   public var stopAllEvents: Swift.Bool
   public var offlineQueueSize: Swift.Int?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
-  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class BlockedEvents : Swift.Codable {
   public var name: Swift.String?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
-  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItemQuestion : Swift.Codable {
   public var text: Swift.String?
   public var color: Swift.String?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
-  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItemHeader : Swift.Codable {
   public var text: Swift.String?
   public var color: Swift.String?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
-  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItemImage : Swift.Codable {
   public var url: Swift.String?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
-  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItemText : Swift.Codable {
   public var text: Swift.String?
   public var color: Swift.String?
   public var bgColor: Swift.String?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
-  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItemAction : Swift.Codable {
   public var link: Swift.String?
@@ -356,8 +357,8 @@ public class Configuration : Swift.Codable {
   public func isDeepType() -> Swift.Bool
   public func isUrlType() -> Swift.Bool
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
-  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class AppCommunicationItemButton : Swift.Codable {
   public var id: Swift.String?
@@ -370,8 +371,8 @@ public class Configuration : Swift.Codable {
   public var imageUrl: Swift.String?
   public var freeTextQuestionCheckBox: Swift.Bool?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
-  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
 }
 public enum SelectedOperator : Swift.String, Swift.Codable {
   case greaterThan
@@ -393,7 +394,7 @@ public struct OpenEndedFieldModel {
 public struct ChoiseFieldModel {
 }
 public class EvamInitConfig {
-  public init(bundle: Foundation.Bundle, apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String?, tokenService: Evam_iOS_Common_Kit.TokenServiceProtocol? = nil, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false, sendApplicationLifeCycleEventEnabled: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, isWifiStatusRequired: Swift.Bool = true, isDiskCapacityRequired: Swift.Bool = true, isBatteryStatusRequired: Swift.Bool = true, isLocationRequired: Swift.Bool = true, forceInitialize: Swift.Bool = false)
+  public init(bundle: Foundation.Bundle, apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String?, tokenService: (any Evam_iOS_Common_Kit.TokenServiceProtocol)? = nil, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false, sendApplicationLifeCycleEventEnabled: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, isWifiStatusRequired: Swift.Bool = true, isDiskCapacityRequired: Swift.Bool = true, isBatteryStatusRequired: Swift.Bool = true, isLocationRequired: Swift.Bool = true, forceInitialize: Swift.Bool = false)
   @objc deinit
 }
 public class Evam {
