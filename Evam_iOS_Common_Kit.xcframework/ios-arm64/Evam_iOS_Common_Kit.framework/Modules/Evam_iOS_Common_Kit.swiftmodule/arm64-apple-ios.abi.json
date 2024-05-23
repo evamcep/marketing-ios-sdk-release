@@ -23639,7 +23639,7 @@
       "kind": "StringLiteral",
       "offset": 373,
       "length": 8,
-      "value": "\"1.2.10\""
+      "value": "\"1.2.11\""
     },
     {
       "filePath": "\/Users\/cemserit\/dev\/evam\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
