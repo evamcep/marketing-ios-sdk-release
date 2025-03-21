@@ -433,7 +433,6 @@ public protocol TokenServiceProtocol {
 @available(*, unavailable, renamed: "Notification.Name.evamReachabilityChanged")
 public let EvamReachabilityChangedNotification: Foundation.NSNotification.Name
 @_hasMissingDesignatedInitializers public class EvamEventManager {
-  public static func handlePopupAction(controller: UIKit.UIViewController, pageName: Swift.String?, action: Evam_iOS_Common_Kit.AppCommunicationItem?, fromNotification: Swift.Bool, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
   @objc deinit
 }
 extension Evam_iOS_Common_Kit.EvamEventManager {
@@ -453,7 +452,6 @@ extension Evam_iOS_Common_Kit.EvamEventManager {
   public static func sendEvent(controller: UIKit.UIViewController?, eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Any]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
   public static func sendLoginEvent(controller: UIKit.UIViewController?, pageName: Swift.String? = nil, initialParameters: [Swift.String : Any]? = nil)
   public static func sendEvent(eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Any]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItem) -> ())
-  public static func sendInAppMessageEvent(event: Evam_iOS_Common_Kit.AppCommunicationItem, body: Evam_iOS_Common_Kit.AppCommunicationItemAction? = nil, choice: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, button: Evam_iOS_Common_Kit.AppCommunicationItemButton? = nil, scoreField: Evam_iOS_Common_Kit.ScoreFieldModel? = nil, openEndedField: Evam_iOS_Common_Kit.OpenEndedFieldModel? = nil, choiseField: Evam_iOS_Common_Kit.ChoiseFieldModel? = nil, controller: UIKit.UIViewController?, pageName: Swift.String? = nil)
   public static func sendInitializeEvent()
 }
 public func UIColorFromRGB(_ rgbValue: Swift.UInt) -> UIKit.UIColor
@@ -496,7 +494,7 @@ public enum HTTPMethod : Swift.String {
   }
 }
 public class JSONRequest<T> where T : Swift.Decodable, T : Swift.Encodable {
-  public typealias JSONCompletionHandler = (T?, Foundation.NSError?, Swift.Bool?) -> Swift.Void
+  public typealias JSONCompletionHandler = (T?, Foundation.NSError?, Swift.Bool?, Swift.Int?) -> Swift.Void
   public var completionHandler: Evam_iOS_Common_Kit.JSONRequest<T>.JSONCompletionHandler?
   public var httpMethod: Swift.String
   public var serviceUrl: Foundation.URL
