@@ -3386,6 +3386,23 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Evam_iOS_Common_Kit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "Evam_iOS_Common_Kit"
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -10821,25 +10838,16 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               }
             ],
             "declKind": "Var",
-            "usr": "s:19Evam_iOS_Common_Kit20AppCommunicationItemC4uuidSSSgvp",
-            "mangledName": "$s19Evam_iOS_Common_Kit20AppCommunicationItemC4uuidSSSgvp",
+            "usr": "s:19Evam_iOS_Common_Kit20AppCommunicationItemC4uuidSSvp",
+            "mangledName": "$s19Evam_iOS_Common_Kit20AppCommunicationItemC4uuidSSvp",
             "moduleName": "Evam_iOS_Common_Kit",
             "declAttributes": [
-              "HasInitialValue",
               "HasStorage",
               "AccessControl"
             ],
@@ -10852,22 +10860,14 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:19Evam_iOS_Common_Kit20AppCommunicationItemC4uuidSSSgvg",
-                "mangledName": "$s19Evam_iOS_Common_Kit20AppCommunicationItemC4uuidSSSgvg",
+                "usr": "s:19Evam_iOS_Common_Kit20AppCommunicationItemC4uuidSSvg",
+                "mangledName": "$s19Evam_iOS_Common_Kit20AppCommunicationItemC4uuidSSvg",
                 "moduleName": "Evam_iOS_Common_Kit",
                 "implicit": true,
                 "accessorKind": "get"
@@ -10884,22 +10884,14 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:19Evam_iOS_Common_Kit20AppCommunicationItemC4uuidSSSgvs",
-                "mangledName": "$s19Evam_iOS_Common_Kit20AppCommunicationItemC4uuidSSSgvs",
+                "usr": "s:19Evam_iOS_Common_Kit20AppCommunicationItemC4uuidSSvs",
+                "mangledName": "$s19Evam_iOS_Common_Kit20AppCommunicationItemC4uuidSSvs",
                 "moduleName": "Evam_iOS_Common_Kit",
                 "implicit": true,
                 "accessorKind": "set"
@@ -10916,8 +10908,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:19Evam_iOS_Common_Kit20AppCommunicationItemC4uuidSSSgvM",
-                "mangledName": "$s19Evam_iOS_Common_Kit20AppCommunicationItemC4uuidSSSgvM",
+                "usr": "s:19Evam_iOS_Common_Kit20AppCommunicationItemC4uuidSSvM",
+                "mangledName": "$s19Evam_iOS_Common_Kit20AppCommunicationItemC4uuidSSvM",
                 "moduleName": "Evam_iOS_Common_Kit",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -11151,25 +11143,16 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.Double?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Double",
-                    "printedName": "Swift.Double",
-                    "usr": "s:Sd"
-                  }
-                ],
-                "usr": "s:Sq"
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
               }
             ],
             "declKind": "Var",
-            "usr": "s:19Evam_iOS_Common_Kit20AppCommunicationItemC10expireDateSdSgvp",
-            "mangledName": "$s19Evam_iOS_Common_Kit20AppCommunicationItemC10expireDateSdSgvp",
+            "usr": "s:19Evam_iOS_Common_Kit20AppCommunicationItemC10expireDateSivp",
+            "mangledName": "$s19Evam_iOS_Common_Kit20AppCommunicationItemC10expireDateSivp",
             "moduleName": "Evam_iOS_Common_Kit",
             "declAttributes": [
-              "HasInitialValue",
               "HasStorage",
               "AccessControl"
             ],
@@ -11182,22 +11165,14 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.Double?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Double",
-                        "printedName": "Swift.Double",
-                        "usr": "s:Sd"
-                      }
-                    ],
-                    "usr": "s:Sq"
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:19Evam_iOS_Common_Kit20AppCommunicationItemC10expireDateSdSgvg",
-                "mangledName": "$s19Evam_iOS_Common_Kit20AppCommunicationItemC10expireDateSdSgvg",
+                "usr": "s:19Evam_iOS_Common_Kit20AppCommunicationItemC10expireDateSivg",
+                "mangledName": "$s19Evam_iOS_Common_Kit20AppCommunicationItemC10expireDateSivg",
                 "moduleName": "Evam_iOS_Common_Kit",
                 "implicit": true,
                 "accessorKind": "get"
@@ -11214,22 +11189,14 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.Double?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Double",
-                        "printedName": "Swift.Double",
-                        "usr": "s:Sd"
-                      }
-                    ],
-                    "usr": "s:Sq"
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:19Evam_iOS_Common_Kit20AppCommunicationItemC10expireDateSdSgvs",
-                "mangledName": "$s19Evam_iOS_Common_Kit20AppCommunicationItemC10expireDateSdSgvs",
+                "usr": "s:19Evam_iOS_Common_Kit20AppCommunicationItemC10expireDateSivs",
+                "mangledName": "$s19Evam_iOS_Common_Kit20AppCommunicationItemC10expireDateSivs",
                 "moduleName": "Evam_iOS_Common_Kit",
                 "implicit": true,
                 "accessorKind": "set"
@@ -11246,8 +11213,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:19Evam_iOS_Common_Kit20AppCommunicationItemC10expireDateSdSgvM",
-                "mangledName": "$s19Evam_iOS_Common_Kit20AppCommunicationItemC10expireDateSdSgvM",
+                "usr": "s:19Evam_iOS_Common_Kit20AppCommunicationItemC10expireDateSivM",
+                "mangledName": "$s19Evam_iOS_Common_Kit20AppCommunicationItemC10expireDateSivM",
                 "moduleName": "Evam_iOS_Common_Kit",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -13172,7 +13139,6 @@
         "declAttributes": [
           "AccessControl"
         ],
-        "hasMissingDesignatedInitializers": true,
         "conformances": [
           {
             "kind": "Conformance",
@@ -18216,6 +18182,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Evam_iOS_Common_Kit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -18233,6 +18209,23 @@
         "declAttributes": [
           "RawDocComment"
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Evam_iOS_Common_Kit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Evam_iOS_Common_Kit"
       },
       {
         "kind": "Import",
@@ -19523,7 +19516,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(Evam_iOS_Common_Kit.AppCommunicationItem) -> ()",
+                "printedName": "(Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -19532,21 +19525,23 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "AppCommunicationItem",
-                    "printedName": "Evam_iOS_Common_Kit.AppCommunicationItem",
-                    "usr": "s:19Evam_iOS_Common_Kit20AppCommunicationItemC"
+                    "name": "AppCommunicationItemButton",
+                    "printedName": "Evam_iOS_Common_Kit.AppCommunicationItemButton",
+                    "usr": "s:19Evam_iOS_Common_Kit26AppCommunicationItemButtonC"
                   }
                 ]
               }
             ],
             "declKind": "Func",
-            "usr": "s:19Evam_iOS_Common_Kit0A12EventManagerC04sendE09eventName04pageI017initialParameters16onActionRequiredySS_SSSgSDySSypGSgyAA20AppCommunicationItemCctFZ",
-            "mangledName": "$s19Evam_iOS_Common_Kit0A12EventManagerC04sendE09eventName04pageI017initialParameters16onActionRequiredySS_SSSgSDySSypGSgyAA20AppCommunicationItemCctFZ",
+            "usr": "s:19Evam_iOS_Common_Kit0A12EventManagerC04sendE09eventName04pageI017initialParameters16onActionRequiredySS_SSSgSDySSypGSgyAA26AppCommunicationItemButtonCctFZ",
+            "mangledName": "$s19Evam_iOS_Common_Kit0A12EventManagerC04sendE09eventName04pageI017initialParameters16onActionRequiredySS_SSSgSDySSypGSgyAA26AppCommunicationItemButtonCctFZ",
             "moduleName": "Evam_iOS_Common_Kit",
             "static": true,
+            "intro_iOS": "13.0",
             "declAttributes": [
               "Final",
               "AccessControl",
+              "Available",
               "RawDocComment"
             ],
             "isFromExtension": true,
@@ -20066,6 +20061,16 @@
         "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Evam_iOS_Common_Kit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
         "declKind": "Import",
         "moduleName": "Evam_iOS_Common_Kit",
         "declAttributes": [
@@ -22168,6 +22173,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Evam_iOS_Common_Kit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -22224,6 +22239,33 @@
         "declAttributes": [
           "RawDocComment"
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Evam_iOS_Common_Kit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Evam_iOS_Common_Kit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "Evam_iOS_Common_Kit"
       },
       {
         "kind": "Import",
@@ -22589,6 +22631,135 @@
         "moduleName": "Evam_iOS_Common_Kit",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "View",
+        "printedName": "View",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "trackAppLifecycleEvents",
+            "printedName": "trackAppLifecycleEvents(using:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OpaqueTypeArchetype",
+                "printedName": "some SwiftUI.View",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "View",
+                    "printedName": "SwiftUI.View",
+                    "usr": "s:7SwiftUI4ViewP"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ScenePhase",
+                "printedName": "SwiftUI.ScenePhase",
+                "usr": "s:7SwiftUI10ScenePhaseO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7SwiftUI4ViewP19Evam_iOS_Common_KitE23trackAppLifecycleEvents5usingQrAA10ScenePhaseO_tF",
+            "mangledName": "$s7SwiftUI4ViewP19Evam_iOS_Common_KitE23trackAppLifecycleEvents5usingQrAA10ScenePhaseO_tF",
+            "moduleName": "Evam_iOS_Common_Kit",
+            "genericSig": "<τ_0_0 where τ_0_0 : SwiftUI.View>",
+            "sugared_genericSig": "<Self where Self : SwiftUI.View>",
+            "intro_iOS": "14.0",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "Available",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackPageLifecycleEvents",
+            "printedName": "trackPageLifecycleEvents(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OpaqueTypeArchetype",
+                "printedName": "some SwiftUI.View",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "View",
+                    "printedName": "SwiftUI.View",
+                    "usr": "s:7SwiftUI4ViewP"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7SwiftUI4ViewP19Evam_iOS_Common_KitE24trackPageLifecycleEventsyQrSSF",
+            "mangledName": "$s7SwiftUI4ViewP19Evam_iOS_Common_KitE24trackPageLifecycleEventsyQrSSF",
+            "moduleName": "Evam_iOS_Common_Kit",
+            "genericSig": "<τ_0_0 where τ_0_0 : SwiftUI.View>",
+            "sugared_genericSig": "<Self where Self : SwiftUI.View>",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:7SwiftUI4ViewP",
+        "mangledName": "$s7SwiftUI4ViewP",
+        "moduleName": "SwiftUICore",
+        "genericSig": "<τ_0_0.Body : SwiftUI.View>",
+        "sugared_genericSig": "<Self.Body : SwiftUI.View>",
+        "intro_Macosx": "10.15",
+        "intro_iOS": "13.0",
+        "intro_tvOS": "13.0",
+        "intro_watchOS": "6.0",
+        "declAttributes": [
+          "Preconcurrency",
+          "TypeEraser",
+          "OriginallyDefinedIn",
+          "OriginallyDefinedIn",
+          "OriginallyDefinedIn",
+          "OriginallyDefinedIn",
+          "Available",
+          "Available",
+          "Available",
+          "Available",
+          "Custom"
+        ],
+        "isExternal": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
         ]
       },
       {
@@ -22989,6 +23160,28 @@
             ],
             "usr": "s:s21_ObjectiveCBridgeableP",
             "mangledName": "$ss21_ObjectiveCBridgeableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_FormatSpecifiable",
+            "printedName": "_FormatSpecifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "_Arg",
+                "printedName": "_Arg",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int64",
+                    "printedName": "Swift.Int64",
+                    "usr": "s:s5Int64V"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7SwiftUI18_FormatSpecifiableP",
+            "mangledName": "$s7SwiftUI18_FormatSpecifiableP"
           }
         ]
       },
@@ -23369,6 +23562,28 @@
             ],
             "usr": "s:s21_ObjectiveCBridgeableP",
             "mangledName": "$ss21_ObjectiveCBridgeableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_FormatSpecifiable",
+            "printedName": "_FormatSpecifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "_Arg",
+                "printedName": "_Arg",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt64",
+                    "printedName": "Swift.UInt64",
+                    "usr": "s:s6UInt64V"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7SwiftUI18_FormatSpecifiableP",
+            "mangledName": "$s7SwiftUI18_FormatSpecifiableP"
           }
         ]
       },
@@ -23834,6 +24049,35 @@
             ],
             "usr": "s:s21_ObjectiveCBridgeableP",
             "mangledName": "$ss21_ObjectiveCBridgeableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_FormatSpecifiable",
+            "printedName": "_FormatSpecifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "_Arg",
+                "printedName": "_Arg",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Float",
+                    "printedName": "Swift.Float",
+                    "usr": "s:Sf"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7SwiftUI18_FormatSpecifiableP",
+            "mangledName": "$s7SwiftUI18_FormatSpecifiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "VectorArithmetic",
+            "printedName": "VectorArithmetic",
+            "usr": "s:7SwiftUI16VectorArithmeticP",
+            "mangledName": "$s7SwiftUI16VectorArithmeticP"
           }
         ]
       },
@@ -24299,6 +24543,57 @@
             ],
             "usr": "s:s21_ObjectiveCBridgeableP",
             "mangledName": "$ss21_ObjectiveCBridgeableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_FormatSpecifiable",
+            "printedName": "_FormatSpecifiable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "_Arg",
+                "printedName": "_Arg",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7SwiftUI18_FormatSpecifiableP",
+            "mangledName": "$s7SwiftUI18_FormatSpecifiableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "VectorArithmetic",
+            "printedName": "VectorArithmetic",
+            "usr": "s:7SwiftUI16VectorArithmeticP",
+            "mangledName": "$s7SwiftUI16VectorArithmeticP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Animatable",
+            "printedName": "Animatable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AnimatableData",
+                "printedName": "AnimatableData",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7SwiftUI10AnimatableP",
+            "mangledName": "$s7SwiftUI10AnimatableP"
           }
         ]
       }
@@ -24345,223 +24640,223 @@
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
       "offset": 373,
-      "length": 8,
-      "value": "\"1.2.14\""
+      "length": 7,
+      "value": "\"2.0.0\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "IntegerLiteral",
-      "offset": 574,
+      "offset": 573,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1086,
+      "offset": 1085,
       "length": 9,
       "value": "\"page_in\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1116,
+      "offset": 1115,
       "length": 10,
       "value": "\"page_out\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1153,
+      "offset": 1152,
       "length": 16,
       "value": "\"app_background\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1196,
+      "offset": 1195,
       "length": 16,
       "value": "\"app_foreground\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1237,
+      "offset": 1236,
       "length": 14,
       "value": "\"actor_change\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1311,
+      "offset": 1310,
       "length": 9,
       "value": "\"page_in\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1341,
+      "offset": 1340,
       "length": 10,
       "value": "\"page_out\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1378,
+      "offset": 1377,
       "length": 16,
       "value": "\"app_background\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1421,
+      "offset": 1420,
       "length": 16,
       "value": "\"app_foreground\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1462,
+      "offset": 1461,
       "length": 14,
       "value": "\"actor_change\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1515,
+      "offset": 1514,
       "length": 28,
       "value": "\"push_notification_received\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1581,
+      "offset": 1580,
       "length": 27,
       "value": "\"push_notification_clicked\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1645,
+      "offset": 1644,
       "length": 26,
       "value": "\"push_notificition_denied\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1711,
+      "offset": 1710,
       "length": 29,
       "value": "\"push_notification_dismissed\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1760,
+      "offset": 1759,
       "length": 9,
       "value": "\"install\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1799,
+      "offset": 1798,
       "length": 19,
       "value": "\"application_error\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1842,
+      "offset": 1841,
       "length": 15,
       "value": "\"in_app_opened\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1881,
+      "offset": 1880,
       "length": 19,
       "value": "\"push_token_change\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1933,
+      "offset": 1932,
       "length": 22,
       "value": "\"InAppMessageResponse\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1978,
+      "offset": 1977,
       "length": 16,
       "value": "\"sdk_initialize\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 2012,
+      "offset": 2011,
       "length": 7,
       "value": "\"login\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 2264,
+      "offset": 2263,
       "length": 6,
       "value": "\"wifi\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 2291,
+      "offset": 2290,
       "length": 10,
       "value": "\"cellular\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 2318,
+      "offset": 2317,
       "length": 6,
       "value": "\"none\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 2548,
+      "offset": 2547,
       "length": 8,
       "value": "\"online\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 2576,
+      "offset": 2575,
       "length": 9,
       "value": "\"offline\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 2652,
+      "offset": 2651,
       "length": 12,
       "value": "\"APNS_TOKEN\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 2686,
+      "offset": 2685,
       "length": 12,
       "value": "\"PUSH_TOKEN\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 2763,
+      "offset": 2762,
       "length": 6,
       "value": "\"apns\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 2790,
+      "offset": 2789,
       "length": 10,
       "value": "\"firebase\""
     },
@@ -25427,58 +25722,58 @@
       "value": "true"
     },
     {
-      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/AppCommunication.swift",
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/AppCommunication.swift",
       "kind": "BooleanLiteral",
       "offset": 799,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/AppCommunication.swift",
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/AppCommunication.swift",
       "kind": "BooleanLiteral",
-      "offset": 1932,
+      "offset": 2011,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/AppCommunication.swift",
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/AppCommunication.swift",
       "kind": "StringLiteral",
-      "offset": 4057,
+      "offset": 4201,
       "length": 14,
       "value": "\"GREATER_THAN\""
     },
     {
-      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/AppCommunication.swift",
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/AppCommunication.swift",
       "kind": "StringLiteral",
-      "offset": 4102,
+      "offset": 4246,
       "length": 23,
       "value": "\"GREATER_THAN_EQUAL_TO\""
     },
     {
-      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/AppCommunication.swift",
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/AppCommunication.swift",
       "kind": "StringLiteral",
-      "offset": 4146,
+      "offset": 4290,
       "length": 11,
       "value": "\"LESS_THAN\""
     },
     {
-      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/AppCommunication.swift",
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/AppCommunication.swift",
       "kind": "StringLiteral",
-      "offset": 4185,
+      "offset": 4329,
       "length": 20,
       "value": "\"LESS_THAN_EQUAL_TO\""
     },
     {
-      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/AppCommunication.swift",
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/AppCommunication.swift",
       "kind": "StringLiteral",
-      "offset": 4227,
+      "offset": 4371,
       "length": 13,
       "value": "\"IS_EQUAL_TO\""
     },
     {
-      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/AppCommunication.swift",
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/AppCommunication.swift",
       "kind": "StringLiteral",
-      "offset": 4263,
+      "offset": 4407,
       "length": 14,
       "value": "\"NOT_EQUAL_TO\""
     },
@@ -25842,49 +26137,49 @@
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Base\/EvamEventBase\/Models\/InAppMessageEvent.swift",
       "kind": "StringLiteral",
-      "offset": 6045,
+      "offset": 6044,
       "length": 6,
       "value": "\"BODY\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Base\/EvamEventBase\/Models\/InAppMessageEvent.swift",
       "kind": "StringLiteral",
-      "offset": 6071,
+      "offset": 6070,
       "length": 8,
       "value": "\"BUTTON\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Base\/EvamEventBase\/Models\/InAppMessageEvent.swift",
       "kind": "StringLiteral",
-      "offset": 6099,
+      "offset": 6098,
       "length": 8,
       "value": "\"REJECT\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Base\/EvamEventBase\/Models\/InAppMessageEvent.swift",
       "kind": "StringLiteral",
-      "offset": 6127,
+      "offset": 6126,
       "length": 8,
       "value": "\"CHOICE\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Base\/EvamEventBase\/Models\/InAppMessageEvent.swift",
       "kind": "StringLiteral",
-      "offset": 6154,
+      "offset": 6153,
       "length": 7,
       "value": "\"EMOJI\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Base\/EvamEventBase\/Models\/InAppMessageEvent.swift",
       "kind": "StringLiteral",
-      "offset": 6180,
+      "offset": 6179,
       "length": 7,
       "value": "\"SCORE\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Base\/EvamEventBase\/Models\/InAppMessageEvent.swift",
       "kind": "StringLiteral",
-      "offset": 6210,
+      "offset": 6209,
       "length": 12,
       "value": "\"OPEN_ENDED\""
     },
@@ -27004,7 +27299,7 @@
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Evam\/EvamEventManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 17793,
+      "offset": 18535,
       "length": 5,
       "value": "false"
     },
@@ -27156,9 +27451,107 @@
       "value": "10"
     },
     {
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/ConditionModel.swift",
+      "kind": "StringLiteral",
+      "offset": 181,
+      "length": 4,
+      "value": "\"GT\""
+    },
+    {
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/ConditionModel.swift",
+      "kind": "StringLiteral",
+      "offset": 200,
+      "length": 4,
+      "value": "\"LT\""
+    },
+    {
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/ConditionModel.swift",
+      "kind": "StringLiteral",
+      "offset": 220,
+      "length": 5,
+      "value": "\"GTE\""
+    },
+    {
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/ConditionModel.swift",
+      "kind": "StringLiteral",
+      "offset": 241,
+      "length": 5,
+      "value": "\"LTE\""
+    },
+    {
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/ConditionModel.swift",
+      "kind": "StringLiteral",
+      "offset": 265,
+      "length": 8,
+      "value": "\"EQUALS\""
+    },
+    {
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/ConditionModel.swift",
+      "kind": "StringLiteral",
+      "offset": 290,
+      "length": 4,
+      "value": "\"IN\""
+    },
+    {
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/ConditionModel.swift",
+      "kind": "StringLiteral",
+      "offset": 315,
+      "length": 10,
+      "value": "\"CONTAINS\""
+    },
+    {
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/ConditionModel.swift",
+      "kind": "StringLiteral",
+      "offset": 344,
+      "length": 8,
+      "value": "\"NOT_IN\""
+    },
+    {
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/ConditionModel.swift",
+      "kind": "StringLiteral",
+      "offset": 375,
+      "length": 12,
+      "value": "\"NOT_EQUALS\""
+    },
+    {
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/ConditionModel.swift",
+      "kind": "StringLiteral",
+      "offset": 412,
+      "length": 14,
+      "value": "\"NOT_CONTAINS\""
+    },
+    {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/DeviceStatusHelper.swift",
       "kind": "StringLiteral",
       "offset": 254,
+      "length": 3,
+      "value": "\":\""
+    },
+    {
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/ShowLimitManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 244,
+      "length": 2,
+      "value": "60"
+    },
+    {
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/ShowLimitManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 249,
+      "length": 4,
+      "value": "1000"
+    },
+    {
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Models\/ShowLimitManager.swift",
+      "kind": "StringLiteral",
+      "offset": 358,
+      "length": 3,
+      "value": "\":\""
+    },
+    {
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Core\/SwiftUI\/ActivityLifecycle\/PageTrackingModifier.swift",
+      "kind": "StringLiteral",
+      "offset": 319,
       "length": 3,
       "value": "\":\""
     },
