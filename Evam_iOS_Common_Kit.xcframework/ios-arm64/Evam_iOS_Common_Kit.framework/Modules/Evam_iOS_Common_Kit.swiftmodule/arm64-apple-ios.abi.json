@@ -17836,6 +17836,52 @@
           },
           {
             "kind": "Function",
+            "name": "getApplicationName",
+            "printedName": "getApplicationName()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19Evam_iOS_Common_Kit0A0C18getApplicationNameSSyFZ",
+            "mangledName": "$s19Evam_iOS_Common_Kit0A0C18getApplicationNameSSyFZ",
+            "moduleName": "Evam_iOS_Common_Kit",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getActorId",
+            "printedName": "getActorId()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19Evam_iOS_Common_Kit0A0C10getActorIdSSyFZ",
+            "mangledName": "$s19Evam_iOS_Common_Kit0A0C10getActorIdSSyFZ",
+            "moduleName": "Evam_iOS_Common_Kit",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "setPushToken",
             "printedName": "setPushToken(token:)",
             "children": [
@@ -24346,7 +24392,7 @@
       "kind": "StringLiteral",
       "offset": 373,
       "length": 8,
-      "value": "\"1.2.15\""
+      "value": "\"1.2.16\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
@@ -26003,14 +26049,14 @@
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Evam\/Evam.swift",
       "kind": "StringLiteral",
-      "offset": 5619,
+      "offset": 5749,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Evam\/Evam.swift",
       "kind": "BooleanLiteral",
-      "offset": 5655,
+      "offset": 5785,
       "length": 5,
       "value": "false"
     },
@@ -27004,7 +27050,7 @@
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Evam\/EvamEventManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 17793,
+      "offset": 17903,
       "length": 5,
       "value": "false"
     },
