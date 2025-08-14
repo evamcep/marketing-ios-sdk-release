@@ -6,6 +6,7 @@ import CoreLocation
 @_exported import Evam_iOS_Common_Kit
 import Foundation
 import Swift
+import SwiftUI
 import SystemConfiguration
 import UIKit
 import UserNotifications
@@ -136,6 +137,14 @@ public enum TokenProviderType : Swift.String {
   public var rawValue: Swift.String {
     get
   }
+}
+@available(iOS 13.0, *)
+extension SwiftUICore.View {
+  @available(iOS 14.0, *)
+  @_Concurrency.MainActor @preconcurrency public func trackAppLifecycleEvents(using scenePhase: SwiftUI.ScenePhase) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func trackPageLifecycleEvents(_ name: Swift.String) -> some SwiftUICore.View
+  
 }
 public enum EvamPopupStyle {
   case success, error, notice, warning, info, edit, wait, question
@@ -284,12 +293,12 @@ public typealias DismissBlock = () -> Swift.Void
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
 }
-@_hasMissingDesignatedInitializers public class AppCommunicationItem : Swift.Codable {
+public class AppCommunicationItem : Swift.Codable {
   public var type: Swift.String?
-  public var uuid: Swift.String?
+  public var uuid: Swift.String
   public var code: Swift.String?
   public var name: Swift.String?
-  public var expireDate: Swift.Double?
+  public var expireDate: Swift.Int
   public var triggeringEventName: Swift.String?
   public var header: Evam_iOS_Common_Kit.AppCommunicationItemHeader?
   public var text: Evam_iOS_Common_Kit.AppCommunicationItemText?
@@ -453,7 +462,8 @@ extension Evam_iOS_Common_Kit.EvamEventManager {
   public static func sendPushNotificationReceivedEvent(pushToken: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String)
   public static func sendEvent(controller: UIKit.UIViewController?, eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Any]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
   public static func sendLoginEvent(controller: UIKit.UIViewController?, pageName: Swift.String? = nil, initialParameters: [Swift.String : Any]? = nil)
-  public static func sendEvent(eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Any]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItem) -> ())
+  @available(iOS 13.0, *)
+  public static func sendEvent(eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Any]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
   public static func sendInitializeEvent()
 }
 public func UIColorFromRGB(_ rgbValue: Swift.UInt) -> UIKit.UIColor
