@@ -24687,7 +24687,7 @@
       "kind": "StringLiteral",
       "offset": 373,
       "length": 7,
-      "value": "\"2.0.2\""
+      "value": "\"2.0.3\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
@@ -27282,14 +27282,14 @@
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Base\/EvamEventBase\/Factories\/InjectionMap.swift",
       "kind": "StringLiteral",
-      "offset": 379,
+      "offset": 383,
       "length": 3,
       "value": "\"a\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Base\/EvamEventBase\/Factories\/InjectionMap.swift",
       "kind": "StringLiteral",
-      "offset": 417,
+      "offset": 421,
       "length": 5,
       "value": "\"ALL\""
     },
@@ -27394,21 +27394,21 @@
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Base\/EvamEventBase\/Models\/PageInOutEvent.swift",
       "kind": "StringLiteral",
-      "offset": 280,
+      "offset": 276,
       "length": 5,
       "value": "\"ALL\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Base\/EvamEventBase\/Models\/PageInOutEvent.swift",
       "kind": "StringLiteral",
-      "offset": 1462,
+      "offset": 1474,
       "length": 9,
       "value": "\"page_in\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Base\/EvamEventBase\/Models\/PageInOutEvent.swift",
       "kind": "StringLiteral",
-      "offset": 1491,
+      "offset": 1503,
       "length": 10,
       "value": "\"page_out\""
     },
