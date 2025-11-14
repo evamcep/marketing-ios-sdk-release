@@ -5,6 +5,7 @@
 import CoreLocation
 @_exported import Evam_iOS_Common_Kit
 import Foundation
+import ObjectiveC
 import Swift
 import SwiftUI
 import SystemConfiguration
@@ -14,6 +15,8 @@ import UserNotificationsUI
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+import os.log
+import os
 public protocol PreferencesManagerProtocol {
   var mSharedPreferences: Foundation.UserDefaults { get set }
 }
@@ -266,6 +269,13 @@ public typealias DismissBlock = () -> Swift.Void
   @_Concurrency.MainActor @preconcurrency open func isShowing() -> Swift.Bool
   @objc deinit
 }
+@_hasMissingDesignatedInitializers final public class PageTracker {
+  public static let shared: Evam_iOS_Common_Kit.PageTracker
+  @discardableResult
+  final public func start(with config: Evam_iOS_Common_Kit.PageTrackingConfig = .init()) -> Swift.Bool
+  final public func stop()
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers public class NotificationAppCommunicationItem : Swift.Codable {
   public var type: Swift.String?
   public var uuid: Swift.String?
@@ -403,9 +413,19 @@ public struct OpenEndedFieldModel {
 }
 public struct ChoiseFieldModel {
 }
+public struct DesignConfig {
+  public init(displayCloseButtonInside: Swift.Bool = false)
+}
 public class EvamInitConfig {
-  public init(bundle: Foundation.Bundle, apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String?, tokenService: (any Evam_iOS_Common_Kit.TokenServiceProtocol)? = nil, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false, sendApplicationLifeCycleEventEnabled: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, isWifiStatusRequired: Swift.Bool = true, isDiskCapacityRequired: Swift.Bool = true, isBatteryStatusRequired: Swift.Bool = true, isLocationRequired: Swift.Bool = true, forceInitialize: Swift.Bool = false)
+  public init(bundle: Foundation.Bundle, apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String?, tokenService: (any Evam_iOS_Common_Kit.TokenServiceProtocol)? = nil, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false, sendApplicationLifeCycleEventEnabled: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, isWifiStatusRequired: Swift.Bool = true, isDiskCapacityRequired: Swift.Bool = true, isBatteryStatusRequired: Swift.Bool = true, isLocationRequired: Swift.Bool = true, forceInitialize: Swift.Bool = false, autoPageTrackingEnabled: Swift.Bool = true, designConfig: Evam_iOS_Common_Kit.DesignConfig = DesignConfig())
   @objc deinit
+}
+public struct PageNameResolver {
+  public init()
+  public func resolveName(for controller: UIKit.UIViewController) -> Swift.String
+}
+@objc public protocol PageIdentifiable {
+  @objc var pageIdentifier: Swift.String { get }
 }
 public class Evam {
   public static let sharedInstance: Evam_iOS_Common_Kit.Evam
@@ -521,6 +541,21 @@ public class JSONRequest<T> where T : Swift.Decodable, T : Swift.Encodable {
   public func getInAppCommunication(headers: [Swift.String : Swift.String]? = nil, parameters: [Swift.String : Swift.String], completion: @escaping (Evam_iOS_Common_Kit.AppCommunication?, Swift.Bool?) -> ())
   @objc deinit
 }
+@available(iOS 13.0, *)
+public protocol BaseTrackingView : SwiftUICore.View {
+  associatedtype ContentBody : SwiftUICore.View
+  var pageName: Swift.String { get }
+  @SwiftUICore.ViewBuilder var contentBody: Self.ContentBody { get }
+}
+@available(iOS 13.0, *)
+extension Evam_iOS_Common_Kit.BaseTrackingView {
+  public var pageName: Swift.String {
+    get
+  }
+  public var body: some SwiftUICore.View {
+    get
+  }
+}
 @_hasMissingDesignatedInitializers public class EvamSession {
   @objc deinit
 }
@@ -530,6 +565,13 @@ public class JSONRequest<T> where T : Swift.Decodable, T : Swift.Encodable {
   public class func handleNotification(userInfo: [Swift.AnyHashable : Any], response: UserNotifications.UNNotificationResponse, actionCallback: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemAction?) -> ())
   public static func refreshNotificationPermissionStatusType()
   @objc deinit
+}
+public struct PageTrackingConfig {
+  public var isEnabled: Swift.Bool
+  public var ignoredControllerClasses: [Swift.AnyClass]
+  public var ignoredBundlePrefixes: [Swift.String]
+  public var ignorePredicate: ((UIKit.UIViewController) -> Swift.Bool)?
+  public init()
 }
 extension Evam_iOS_Common_Kit.InitializeStatusType : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.InitializeStatusType : Swift.Hashable {}
