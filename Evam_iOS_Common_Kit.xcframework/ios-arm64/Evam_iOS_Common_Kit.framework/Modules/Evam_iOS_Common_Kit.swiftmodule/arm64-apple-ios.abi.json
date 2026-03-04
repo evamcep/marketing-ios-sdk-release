@@ -3386,23 +3386,6 @@
       },
       {
         "kind": "Import",
-        "name": "UIKit",
-        "printedName": "UIKit",
-        "declKind": "Import",
-        "moduleName": "Evam_iOS_Common_Kit",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "ObjectiveC",
-        "printedName": "ObjectiveC",
-        "declKind": "Import",
-        "moduleName": "Evam_iOS_Common_Kit"
-      },
-      {
-        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -17478,6 +17461,13 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "ObjectiveC",
+        "printedName": "ObjectiveC",
+        "declKind": "Import",
+        "moduleName": "Evam_iOS_Common_Kit"
+      },
+      {
         "kind": "TypeDecl",
         "name": "PageNameResolver",
         "printedName": "PageNameResolver",
@@ -19160,23 +19150,6 @@
             "mangledName": "$ss9EscapableP"
           }
         ]
-      },
-      {
-        "kind": "Import",
-        "name": "SwiftUI",
-        "printedName": "SwiftUI",
-        "declKind": "Import",
-        "moduleName": "Evam_iOS_Common_Kit",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "UIKit",
-        "printedName": "UIKit",
-        "declKind": "Import",
-        "moduleName": "Evam_iOS_Common_Kit"
       },
       {
         "kind": "Import",
@@ -23445,6 +23418,13 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "ObjectiveC",
+        "printedName": "ObjectiveC",
+        "declKind": "Import",
+        "moduleName": "Evam_iOS_Common_Kit"
+      },
+      {
         "kind": "TypeDecl",
         "name": "PageTrackingConfig",
         "printedName": "PageTrackingConfig",
@@ -25979,7 +25959,7 @@
       "kind": "StringLiteral",
       "offset": 373,
       "length": 7,
-      "value": "\"2.0.5\""
+      "value": "\"2.0.6\""
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/Constants.swift",
@@ -26288,34 +26268,6 @@
       "offset": 4415,
       "length": 2,
       "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Core\/AutoPageTracking\/NavigationDelegateProxy.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2254,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Core\/AutoPageTracking\/NavigationDelegateProxy.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2289,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Core\/AutoPageTracking\/NavigationDelegateProxy.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2324,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Core\/AutoPageTracking\/NavigationDelegateProxy.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2359,
-      "length": 1,
-      "value": "0"
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Helper\/DataManager.swift",
@@ -27097,7 +27049,7 @@
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Core\/AutoPageTracking\/PageTracker.swift",
       "kind": "BooleanLiteral",
-      "offset": 1663,
+      "offset": 1505,
       "length": 5,
       "value": "false"
     },
@@ -29099,16 +29051,23 @@
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Core\/AutoPageTracking\/PageTrackingConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 190,
+      "offset": 208,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Core\/AutoPageTracking\/PageTrackingConfig.swift",
       "kind": "Array",
-      "offset": 482,
-      "length": 29,
-      "value": "[\"com.apple.\", \"com.google.\"]"
+      "offset": 339,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/sametyabalak\/Documents\/EvamWorkspace\/On-Premise\/iOS\/marketing-ios-sdk\/Evam_iOS_Common_Kit\/Evam_iOS_Common_Kit\/Core\/AutoPageTracking\/PageTrackingConfig.swift",
+      "kind": "Array",
+      "offset": 465,
+      "length": 14,
+      "value": "[\"com.apple.\"]"
     }
   ]
 }
