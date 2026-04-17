@@ -1,13 +1,11 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-compiler-version: Apple Swift version 6.2.4 effective-5.10 (swiftlang-6.2.4.1.4 clang-1700.6.4.2)
 // swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name Evam_iOS_Common_Kit
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.4
 import CoreLocation
 @_exported import Evam_iOS_Common_Kit
 import Foundation
-import ObjectiveC
 import Swift
-import SwiftUI
 import SystemConfiguration
 import UIKit
 import UserNotifications
@@ -15,8 +13,6 @@ import UserNotificationsUI
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-import os.log
-import os
 public protocol PreferencesManagerProtocol {
   var mSharedPreferences: Foundation.UserDefaults { get set }
 }
@@ -30,7 +26,9 @@ public enum InitializeStatusType : Swift.String {
   case NOT_INITIALIZED
   case INITIALIZE_FAILED
   case TOKEN_FAILED
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -43,7 +41,9 @@ public enum EvamLogType : Swift.String {
   case APP_BACKGROUND
   case APP_FOREGROUND
   case ACTOR_CHANGE
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   @available(*, deprecated, renamed: "EvamEventType")
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -67,7 +67,9 @@ public enum EvamEventType : Swift.String {
   case INAPPMESSAGERESPONSE
   case INITIALIZE
   case LOGIN
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -80,7 +82,9 @@ public enum EvamNotificationPermissionStatusType : Swift.String {
   case PROVISIONAL
   case EPHEMERAL
   case UNKNOWN
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -90,7 +94,9 @@ public enum EvamNetworkCapability : Swift.String {
   case WIFI
   case CELLULAR
   case NONE
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -99,7 +105,9 @@ public enum EvamNetworkCapability : Swift.String {
 public enum SendEventStatus : Swift.String {
   case ENABLED
   case DISABLED
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -108,7 +116,9 @@ public enum SendEventStatus : Swift.String {
 public enum SendLifeCycleEventStatus : Swift.String {
   case ENABLED
   case DISABLED
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -117,7 +127,9 @@ public enum SendLifeCycleEventStatus : Swift.String {
 public enum EvamNetworkStatus : Swift.String {
   case ONLINE
   case OFFLINE
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -126,7 +138,9 @@ public enum EvamNetworkStatus : Swift.String {
 public enum PreferencesKey : Swift.String {
   case apnsToken
   case pushToken
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -135,19 +149,13 @@ public enum PreferencesKey : Swift.String {
 public enum TokenProviderType : Swift.String {
   case apns
   case firebase
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
-}
-@available(iOS 13.0, *)
-extension SwiftUICore.View {
-  @available(iOS 14.0, *)
-  @_Concurrency.MainActor @preconcurrency public func trackAppLifecycleEvents(using scenePhase: SwiftUI.ScenePhase) -> some SwiftUICore.View
-  
-  @_Concurrency.MainActor @preconcurrency public func trackPageLifecycleEvents(_ name: Swift.String) -> some SwiftUICore.View
-  
 }
 public enum EvamPopupStyle {
   case success, error, notice, warning, info, edit, wait, question
@@ -178,7 +186,9 @@ public enum EvamButtonActionType {
 }
 public enum EvamActionType : Swift.String {
   case deep, url
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -197,14 +207,18 @@ public enum EvamAlertButtonLayout {
     public init(prefix: Swift.String = "", suffix: Swift.String = "")
   }
   @_Concurrency.MainActor @preconcurrency @objc dynamic public init()
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @objc deinit
 }
 open class EvamPopupResponder {
   public init(alertview: Evam_iOS_Common_Kit.EvamPopup)
   open func setTitle(_ title: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   open func setSubTitle(_ subTitle: Swift.String?)
+  #endif
   open func close()
   open func setDismissBlock(_ dismissBlock: @escaping Evam_iOS_Common_Kit.DismissBlock)
   @objc deinit
@@ -230,50 +244,75 @@ public typealias DismissBlock = () -> Swift.Void
   @_Concurrency.MainActor @preconcurrency open var iconTintColor: UIKit.UIColor?
   @_Concurrency.MainActor @preconcurrency open var customSubview: UIKit.UIView?
   @_Concurrency.MainActor @preconcurrency public init(appearance: Evam_iOS_Common_Kit.EvamPopup.EvamAppearance)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init()
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewWillLayoutSubviews()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewDidDisappear(_ animated: Swift.Bool)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency open func addTextField(_ title: Swift.String? = nil) -> UIKit.UITextField
+  #endif
   @_Concurrency.MainActor @preconcurrency open func addTextView() -> UIKit.UITextView
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor @preconcurrency open func addButton(_ title: Swift.String, backgroundColor: UIKit.UIColor? = nil, textColor: UIKit.UIColor? = nil, showTimeout: Evam_iOS_Common_Kit.EvamButton.ShowTimeoutConfiguration? = nil, action: @escaping () -> Swift.Void) -> Evam_iOS_Common_Kit.EvamButton
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor @preconcurrency open func addButton(_ title: Swift.String, backgroundColor: UIKit.UIColor? = nil, textColor: UIKit.UIColor? = nil, showTimeout: Evam_iOS_Common_Kit.EvamButton.ShowTimeoutConfiguration? = nil, target: Swift.AnyObject, selector: ObjectiveC.Selector) -> Evam_iOS_Common_Kit.EvamButton
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor @preconcurrency open func showCustom(_ title: Swift.String, subTitle: Swift.String? = nil, color: UIKit.UIColor, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor @preconcurrency open func showSuccess(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt = EvamPopupStyle.success.defaultColorInt, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor @preconcurrency open func showError(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt = EvamPopupStyle.error.defaultColorInt, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor @preconcurrency open func showNotice(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt = EvamPopupStyle.notice.defaultColorInt, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor @preconcurrency open func showWarning(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt = EvamPopupStyle.warning.defaultColorInt, colorTextButton: Swift.UInt = 0x000000, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor @preconcurrency open func showInfo(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt = EvamPopupStyle.info.defaultColorInt, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor @preconcurrency open func showWait(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt? = EvamPopupStyle.wait.defaultColorInt, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor @preconcurrency open func showEdit(_ title: Swift.String, subTitle: Swift.String? = nil, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt = EvamPopupStyle.edit.defaultColorInt, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor @preconcurrency open func showTitle(_ title: Swift.String, subTitle: Swift.String? = nil, style: Evam_iOS_Common_Kit.EvamPopupStyle, closeButtonTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration? = nil, colorStyle: Swift.UInt? = 0x000000, colorTextButton: Swift.UInt = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor @preconcurrency open func showTitle(_ title: Swift.String, subTitle: Swift.String? = nil, timeout: Evam_iOS_Common_Kit.EvamPopup.EvamTimeoutConfiguration?, completeText: Swift.String?, style: Evam_iOS_Common_Kit.EvamPopupStyle, colorStyle: Swift.UInt? = 0x000000, colorTextButton: Swift.UInt? = 0xFFFFFF, circleIconImage: UIKit.UIImage? = nil, animationStyle: Evam_iOS_Common_Kit.EvamAnimationStyle = .topToBottom) -> Evam_iOS_Common_Kit.EvamPopupResponder
+  #endif
   @objc @_Concurrency.MainActor @preconcurrency open func updateShowTimeout()
   @objc @_Concurrency.MainActor @preconcurrency open func hideView()
   @objc @_Concurrency.MainActor @preconcurrency open func hideViewTimeout()
   @_Concurrency.MainActor @preconcurrency open func isShowing() -> Swift.Bool
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers final public class PageTracker {
-  public static let shared: Evam_iOS_Common_Kit.PageTracker
-  @discardableResult
-  final public func start(with config: Evam_iOS_Common_Kit.PageTrackingConfig = .init()) -> Swift.Bool
-  final public func stop()
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class NotificationAppCommunicationItem : Swift.Codable {
@@ -303,12 +342,12 @@ public typealias DismissBlock = () -> Swift.Void
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
 }
-public class AppCommunicationItem : Swift.Codable {
+@_hasMissingDesignatedInitializers public class AppCommunicationItem : Swift.Codable {
   public var type: Swift.String?
-  public var uuid: Swift.String
+  public var uuid: Swift.String?
   public var code: Swift.String?
   public var name: Swift.String?
-  public var expireDate: Swift.Int
+  public var expireDate: Swift.Double?
   public var triggeringEventName: Swift.String?
   public var header: Evam_iOS_Common_Kit.AppCommunicationItemHeader?
   public var text: Evam_iOS_Common_Kit.AppCommunicationItemText?
@@ -401,7 +440,9 @@ public enum SelectedOperator : Swift.String, Swift.Codable {
   case lessThanEqualTo
   case isEqualTo
   case notEqualTo
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -413,19 +454,11 @@ public struct OpenEndedFieldModel {
 }
 public struct ChoiseFieldModel {
 }
-public struct DesignConfig {
-  public init(displayCloseButtonInside: Swift.Bool = false)
-}
 public class EvamInitConfig {
-  public init(bundle: Foundation.Bundle, apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String?, tokenService: (any Evam_iOS_Common_Kit.TokenServiceProtocol)? = nil, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false, sendApplicationLifeCycleEventEnabled: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, isWifiStatusRequired: Swift.Bool = true, isDiskCapacityRequired: Swift.Bool = true, isBatteryStatusRequired: Swift.Bool = true, isLocationRequired: Swift.Bool = true, forceInitialize: Swift.Bool = false, autoPageTrackingEnabled: Swift.Bool = true, designConfig: Evam_iOS_Common_Kit.DesignConfig = DesignConfig())
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(bundle: Foundation.Bundle, apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String?, tokenService: (any Evam_iOS_Common_Kit.TokenServiceProtocol)? = nil, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false, sendApplicationLifeCycleEventEnabled: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, isWifiStatusRequired: Swift.Bool = true, isDiskCapacityRequired: Swift.Bool = true, isBatteryStatusRequired: Swift.Bool = true, isLocationRequired: Swift.Bool = true, forceInitialize: Swift.Bool = false)
+  #endif
   @objc deinit
-}
-public struct PageNameResolver {
-  public init()
-  public func resolveName(for controller: UIKit.UIViewController) -> Swift.String
-}
-@objc public protocol PageIdentifiable {
-  @objc var pageIdentifier: Swift.String { get }
 }
 public class Evam {
   public static let sharedInstance: Evam_iOS_Common_Kit.Evam
@@ -433,9 +466,13 @@ public class Evam {
   public static var sendApplicationLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus
   public static var sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus
   public init()
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func initialize(configuration: Evam_iOS_Common_Kit.EvamInitConfig, onSuccess: (() -> ())? = nil, onFailure: (() -> ())? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @available(*, deprecated, renamed: "initialize")
   public static func initialize(apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String, localOrigin: Swift.String, actorId: Swift.String? = nil, applicationName: Swift.String = "", offlineCachingDisabled: Swift.Bool = false)
+  #endif
   public static func updateActorId(newActorId: Swift.String)
   public static func getApplicationName() -> Swift.String
   public static func getActorId() -> Swift.String
@@ -451,14 +488,20 @@ public class Evam {
   @objc deinit
 }
 public protocol TokenServiceProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
   func getToken(_ token: @escaping (Swift.String?) -> Swift.Void)
+  #endif
   var evamTimeout: Swift.Double { get set }
 }
 @_hasMissingDesignatedInitializers public class EvamSliderPushHelper {
   public static func getImageList(notification: UserNotifications.UNNotification) -> [Swift.String]
   public static func getSize(_ collectionView: UIKit.UICollectionView, sizeForItemAt indexPath: Foundation.IndexPath, listCount: Swift.Int) -> CoreFoundation.CGSize
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func scrollNextItem(collectionView: UIKit.UICollectionView!, currentIndex: Swift.Int, listCount: Swift.Int) -> Swift.Int
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func scrollPreviousItem(collectionView: UIKit.UICollectionView!, currentIndex: Swift.Int, listCount: Swift.Int) -> Swift.Int
+  #endif
   @objc deinit
 }
 @available(*, unavailable, renamed: "Notification.Name.evamReachabilityChanged")
@@ -467,23 +510,38 @@ public let EvamReachabilityChangedNotification: Foundation.NSNotification.Name
   @objc deinit
 }
 extension Evam_iOS_Common_Kit.EvamEventManager {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func sendInstallEvent(_ actorId: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func sendPageInEvent(controller: UIKit.UIViewController?, pageName: Swift.String? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func sendPageOutEvent(controller: UIKit.UIViewController?, pageName: Swift.String? = nil)
+  #endif
   public static func sendAppBackgroundEvent()
   public static func sendAppForegroundEvent()
   public static func sendChangeActorEvent(oldActorId: Swift.String, newActorId: Swift.String)
   public static func sendApplicationErrorEvent(error: Foundation.NSError)
   public static func sendTokenChangeEvent(tokenProvider: Evam_iOS_Common_Kit.TokenProviderType)
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func sendOpenedEvent(event: Evam_iOS_Common_Kit.AppCommunicationItem, controller: UIKit.UIViewController?, pageName: Swift.String? = nil)
+  #endif
   public static func sendPushNotificationDismissedEvent(userInfo: [Swift.AnyHashable : Any])
   public static func sendNotificationPermissionStatusEvent(userInfo: [Swift.AnyHashable : Any])
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func sendPushNotificationNotificationClickedEvent(pushToken: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String, buttonId: Swift.String?, buttonText: Swift.String?)
+  #endif
   public static func sendPushNotificationReceivedEvent(pushToken: Swift.String, actorId: Swift.String, communicationId: Swift.String, code: Swift.String, scenario: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func sendEvent(controller: UIKit.UIViewController?, eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Any]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func sendLoginEvent(controller: UIKit.UIViewController?, pageName: Swift.String? = nil, initialParameters: [Swift.String : Any]? = nil)
-  @available(iOS 13.0, *)
-  public static func sendEvent(eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Any]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func sendEvent(eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Any]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItem) -> ())
+  #endif
   public static func sendInitializeEvent()
 }
 public func UIColorFromRGB(_ rgbValue: Swift.UInt) -> UIKit.UIColor
@@ -492,8 +550,12 @@ public func UIColorFromRGB(_ rgbValue: Swift.UInt) -> UIKit.UIColor
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class EvamConfig {
@@ -514,12 +576,16 @@ public var modelName: Swift.String {
   get
 }
 public protocol ServiceClientProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
   func getInAppCommunication(headers: [Swift.String : Swift.String]?, parameters: [Swift.String : Swift.String], completion: @escaping (Evam_iOS_Common_Kit.AppCommunication?, Swift.Bool?) -> ())
+  #endif
 }
 public enum HTTPMethod : Swift.String {
   case post
   case get
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -533,28 +599,17 @@ public class JSONRequest<T> where T : Swift.Decodable, T : Swift.Encodable {
   public var headers: [Swift.String : Any]?
   public var parameters: [Swift.String : Any]?
   public var isCached: Swift.Bool?
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(httpMethod: Evam_iOS_Common_Kit.HTTPMethod, serviceUrl: Foundation.URL, headers: [Swift.String : Any]?, parameters: [Swift.String : Any], requestId: Swift.String? = "", completionHandler: Evam_iOS_Common_Kit.JSONRequest<T>.JSONCompletionHandler?, isCached: Swift.Bool = false)
+  #endif
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class ServiceClient : Evam_iOS_Common_Kit.ServiceClientProtocol {
   public var lastSyncRequestIds: [Swift.String]
+  #if compiler(>=5.3) && $NonescapableTypes
   public func getInAppCommunication(headers: [Swift.String : Swift.String]? = nil, parameters: [Swift.String : Swift.String], completion: @escaping (Evam_iOS_Common_Kit.AppCommunication?, Swift.Bool?) -> ())
+  #endif
   @objc deinit
-}
-@available(iOS 13.0, *)
-public protocol BaseTrackingView : SwiftUICore.View {
-  associatedtype ContentBody : SwiftUICore.View
-  var pageName: Swift.String { get }
-  @SwiftUICore.ViewBuilder var contentBody: Self.ContentBody { get }
-}
-@available(iOS 13.0, *)
-extension Evam_iOS_Common_Kit.BaseTrackingView {
-  public var pageName: Swift.String {
-    get
-  }
-  public var body: some SwiftUICore.View {
-    get
-  }
 }
 @_hasMissingDesignatedInitializers public class EvamSession {
   @objc deinit
@@ -562,16 +617,11 @@ extension Evam_iOS_Common_Kit.BaseTrackingView {
 @_hasMissingDesignatedInitializers public class NotificationManager {
   public static var collectionView: UIKit.UICollectionView!
   public class func didReceive(_ request: UserNotifications.UNNotificationRequest, withContentHandler contentHandler: @escaping (UserNotifications.UNNotificationContent) -> Swift.Void)
+  #if compiler(>=5.3) && $NonescapableTypes
   public class func handleNotification(userInfo: [Swift.AnyHashable : Any], response: UserNotifications.UNNotificationResponse, actionCallback: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemAction?) -> ())
+  #endif
   public static func refreshNotificationPermissionStatusType()
   @objc deinit
-}
-public struct PageTrackingConfig {
-  public var isEnabled: Swift.Bool
-  public var ignoredControllerClasses: [Swift.AnyClass]
-  public var ignoredBundlePrefixes: [Swift.String]
-  public var ignorePredicate: ((UIKit.UIViewController) -> Swift.Bool)?
-  public init()
 }
 extension Evam_iOS_Common_Kit.InitializeStatusType : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.InitializeStatusType : Swift.Hashable {}
