@@ -5,7 +5,9 @@
 import CoreLocation
 @_exported import Evam_iOS_Common_Kit
 import Foundation
+import ObjectiveC
 import Swift
+import SwiftUI
 import SystemConfiguration
 import UIKit
 import UserNotifications
@@ -13,6 +15,8 @@ import UserNotificationsUI
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+import os.log
+import os
 public protocol PreferencesManagerProtocol {
   var mSharedPreferences: Foundation.UserDefaults { get set }
 }
@@ -156,6 +160,14 @@ public enum TokenProviderType : Swift.String {
   public var rawValue: Swift.String {
     get
   }
+}
+@available(iOS 13.0, *)
+extension SwiftUICore.View {
+  @available(iOS 14.0, *)
+  @_Concurrency.MainActor @preconcurrency public func trackAppLifecycleEvents(using scenePhase: SwiftUI.ScenePhase) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func trackPageLifecycleEvents(_ name: Swift.String) -> some SwiftUICore.View
+  
 }
 public enum EvamPopupStyle {
   case success, error, notice, warning, info, edit, wait, question
@@ -315,6 +327,13 @@ public typealias DismissBlock = () -> Swift.Void
   @_Concurrency.MainActor @preconcurrency open func isShowing() -> Swift.Bool
   @objc deinit
 }
+@_hasMissingDesignatedInitializers final public class PageTracker {
+  public static let shared: Evam_iOS_Common_Kit.PageTracker
+  @discardableResult
+  final public func start(with config: Evam_iOS_Common_Kit.PageTrackingConfig = .init()) -> Swift.Bool
+  final public func stop()
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers public class NotificationAppCommunicationItem : Swift.Codable {
   public var type: Swift.String?
   public var uuid: Swift.String?
@@ -334,20 +353,20 @@ public typealias DismissBlock = () -> Swift.Void
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
 }
-@_hasMissingDesignatedInitializers public class AppCommunication : Swift.Codable {
+public class AppCommunication : Swift.Codable {
   public var model: [Evam_iOS_Common_Kit.AppCommunicationItem]?
   public var configuration: Evam_iOS_Common_Kit.Configuration?
   public var blockedEvents: [Evam_iOS_Common_Kit.BlockedEvents]?
+  required public init(from decoder: any Swift.Decoder) throws
   @objc deinit
   public func encode(to encoder: any Swift.Encoder) throws
-  required public init(from decoder: any Swift.Decoder) throws
 }
-@_hasMissingDesignatedInitializers public class AppCommunicationItem : Swift.Codable {
+public class AppCommunicationItem : Swift.Codable {
   public var type: Swift.String?
-  public var uuid: Swift.String?
+  public var uuid: Swift.String
   public var code: Swift.String?
   public var name: Swift.String?
-  public var expireDate: Swift.Double?
+  public var expireDate: Swift.Int
   public var triggeringEventName: Swift.String?
   public var header: Evam_iOS_Common_Kit.AppCommunicationItemHeader?
   public var text: Evam_iOS_Common_Kit.AppCommunicationItemText?
@@ -372,9 +391,9 @@ public class Configuration : Swift.Codable {
   public var id: Swift.String?
   public var stopAllEvents: Swift.Bool
   public var offlineQueueSize: Swift.Int?
+  required public init(from decoder: any Swift.Decoder) throws
   @objc deinit
   public func encode(to encoder: any Swift.Encoder) throws
-  required public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class BlockedEvents : Swift.Codable {
   public var name: Swift.String?
@@ -454,11 +473,21 @@ public struct OpenEndedFieldModel {
 }
 public struct ChoiseFieldModel {
 }
+public struct DesignConfig {
+  public init(displayCloseButtonInside: Swift.Bool = false)
+}
 public class EvamInitConfig {
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(bundle: Foundation.Bundle, apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String?, tokenService: (any Evam_iOS_Common_Kit.TokenServiceProtocol)? = nil, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false, sendApplicationLifeCycleEventEnabled: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, isWifiStatusRequired: Swift.Bool = true, isDiskCapacityRequired: Swift.Bool = true, isBatteryStatusRequired: Swift.Bool = true, isLocationRequired: Swift.Bool = true, forceInitialize: Swift.Bool = false)
+  public init(bundle: Foundation.Bundle, apiUri: Swift.String, listenerUri: Swift.String, authorization: Swift.String?, tokenService: (any Evam_iOS_Common_Kit.TokenServiceProtocol)? = nil, applicationName: Swift.String, actorId: Swift.String? = nil, offlineCachingDisabled: Swift.Bool = false, sendApplicationLifeCycleEventEnabled: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus = SendLifeCycleEventStatus.ENABLED, isWifiStatusRequired: Swift.Bool = true, isDiskCapacityRequired: Swift.Bool = true, isBatteryStatusRequired: Swift.Bool = true, isLocationRequired: Swift.Bool = true, forceInitialize: Swift.Bool = false, autoPageTrackingEnabled: Swift.Bool = true, designConfig: Evam_iOS_Common_Kit.DesignConfig = DesignConfig())
   #endif
   @objc deinit
+}
+public struct PageNameResolver {
+  public init()
+  public func resolveName(for controller: UIKit.UIViewController) -> Swift.String
+}
+@objc public protocol PageIdentifiable {
+  @objc var pageIdentifier: Swift.String { get }
 }
 public class Evam {
   public static let sharedInstance: Evam_iOS_Common_Kit.Evam
@@ -467,7 +496,7 @@ public class Evam {
   public static var sendActivityLifeCycleEventStatus: Evam_iOS_Common_Kit.SendLifeCycleEventStatus
   public init()
   #if compiler(>=5.3) && $NonescapableTypes
-  public static func initialize(configuration: Evam_iOS_Common_Kit.EvamInitConfig, onSuccess: (() -> ())? = nil, onFailure: (() -> ())? = nil)
+  public static func initialize(configuration: Evam_iOS_Common_Kit.EvamInitConfig, onSuccess: (() -> ())? = nil, onError: ((Evam_iOS_Common_Kit.EvamInitError) -> ())? = nil, onFailure: (() -> ())? = nil)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
   @available(*, deprecated, renamed: "initialize")
@@ -477,7 +506,9 @@ public class Evam {
   public static func getApplicationName() -> Swift.String
   public static func getActorId() -> Swift.String
   public static func setPushToken(token: Swift.String)
-  public static func setAuthorizationToken(token: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func setAuthorizationToken(token: Swift.String, onSuccess: (() -> ())? = nil, onError: ((Evam_iOS_Common_Kit.EvamInitError) -> ())? = nil)
+  #endif
   public static func setApnsToken(deviceToken: Foundation.Data)
   public static func didFinishLaunchingWithOptions(application: UIKit.UIApplication)
   public static func applicationDidBecomeActive(application: UIKit.UIApplication)
@@ -540,9 +571,24 @@ extension Evam_iOS_Common_Kit.EvamEventManager {
   public static func sendLoginEvent(controller: UIKit.UIViewController?, pageName: Swift.String? = nil, initialParameters: [Swift.String : Any]? = nil)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  public static func sendEvent(eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Any]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItem) -> ())
+  @available(iOS 13.0, *)
+  public static func sendEvent(eventName: Swift.String, pageName: Swift.String? = nil, initialParameters: [Swift.String : Any]? = nil, onActionRequired: @escaping (Evam_iOS_Common_Kit.AppCommunicationItemButton) -> ())
   #endif
   public static func sendInitializeEvent()
+}
+public enum EvamInitError : Swift.Error, Swift.CustomStringConvertible {
+  case invalidConfiguration
+  case authorizationUnavailable
+  case offline
+  case sessionUnavailable
+  case httpStatus(Swift.Int)
+  case emptyResponse
+  case decodingFailed
+  case network(Foundation.NSError?)
+  case unknown
+  public var description: Swift.String {
+    get
+  }
 }
 public func UIColorFromRGB(_ rgbValue: Swift.UInt) -> UIKit.UIColor
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency open class EvamViewController : UIKit.UIViewController {
@@ -611,6 +657,21 @@ public class JSONRequest<T> where T : Swift.Decodable, T : Swift.Encodable {
   #endif
   @objc deinit
 }
+@available(iOS 13.0, *)
+public protocol BaseTrackingView : SwiftUICore.View {
+  associatedtype ContentBody : SwiftUICore.View
+  var pageName: Swift.String { get }
+  @SwiftUICore.ViewBuilder var contentBody: Self.ContentBody { get }
+}
+@available(iOS 13.0, *)
+extension Evam_iOS_Common_Kit.BaseTrackingView {
+  public var pageName: Swift.String {
+    get
+  }
+  public var body: some SwiftUICore.View {
+    get
+  }
+}
 @_hasMissingDesignatedInitializers public class EvamSession {
   @objc deinit
 }
@@ -622,6 +683,13 @@ public class JSONRequest<T> where T : Swift.Decodable, T : Swift.Encodable {
   #endif
   public static func refreshNotificationPermissionStatusType()
   @objc deinit
+}
+public struct PageTrackingConfig {
+  public var isEnabled: Swift.Bool
+  public var ignoredControllerClasses: [Swift.AnyClass]
+  public var ignoredBundlePrefixes: [Swift.String]
+  public var ignorePredicate: ((UIKit.UIViewController) -> Swift.Bool)?
+  public init()
 }
 extension Evam_iOS_Common_Kit.InitializeStatusType : Swift.Equatable {}
 extension Evam_iOS_Common_Kit.InitializeStatusType : Swift.Hashable {}

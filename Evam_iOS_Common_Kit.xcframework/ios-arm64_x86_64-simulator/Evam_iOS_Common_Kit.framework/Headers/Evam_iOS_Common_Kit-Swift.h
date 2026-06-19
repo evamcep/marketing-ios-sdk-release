@@ -342,6 +342,12 @@ SWIFT_CLASS("_TtC19Evam_iOS_Common_Kit18EvamViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+/// Allow host apps to opt‑in to explicit naming without adding code per screen: they can set this at runtime via KVC or categories.
+SWIFT_PROTOCOL("_TtP19Evam_iOS_Common_Kit16PageIdentifiable_")
+@protocol PageIdentifiable
+@property (nonatomic, readonly, copy) NSString * _Nonnull pageIdentifier;
+@end
+
 #endif
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
@@ -692,6 +698,12 @@ SWIFT_CLASS("_TtC19Evam_iOS_Common_Kit18EvamViewController")
 - (void)viewWillDisappear:(BOOL)animated;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+/// Allow host apps to opt‑in to explicit naming without adding code per screen: they can set this at runtime via KVC or categories.
+SWIFT_PROTOCOL("_TtP19Evam_iOS_Common_Kit16PageIdentifiable_")
+@protocol PageIdentifiable
+@property (nonatomic, readonly, copy) NSString * _Nonnull pageIdentifier;
 @end
 
 #endif
